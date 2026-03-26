@@ -50,12 +50,14 @@ Instructions:
 def clean_llm_response(raw_text: str) -> str:
     """
     Remove visible reasoning or analysis leakage from model output.
-    This is a fallback in case the upstream model or provider exposes reasoning.
     """
     if not raw_text:
         return ""
 
     text = raw_text.strip()
+
+    # Remove any <think>...</think> blocks
+    text = re.sub(r"(?is)<think>.*?</think>", "", text).strip()
 
     # Remove common leaked reasoning/opening lines
     patterns = [
@@ -71,6 +73,9 @@ def clean_llm_response(raw_text: str) -> str:
     for pattern in patterns:
         text = re.sub(pattern, "", text).strip()
 
+    # Remove any leftover standalone think tags just in case
+    text = re.sub(r"(?is)</?think>", "", text).strip()
+
     # If a reasoning marker appears, keep only the content after it
     marker_patterns = [
         r"(?is)final answer:\s*(.*)",
@@ -84,8 +89,9 @@ def clean_llm_response(raw_text: str) -> str:
                 text = possible_answer
                 break
 
-    # Remove excessive blank lines
-    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+    # Clean excessive blank lines and spaces
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    text = re.sub(r"[ \t]{2,}", " ", text).strip()
 
     return text
 
