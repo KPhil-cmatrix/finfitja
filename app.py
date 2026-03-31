@@ -352,6 +352,7 @@ def open_landing():
             """,
             unsafe_allow_html=True
         )
+    st.markdown('<div style="height:0.75rem;"></div>', unsafe_allow_html=True)   
     st.markdown(
         """
         <div class="soft-card">
@@ -378,7 +379,7 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Rational /n Comparisons</h3>
+                <h3>Rational  /nComparisons</h3>
                 <p>FinFit JA can make it easier to recognize differences in features, convenience, and suitability by comparing banks and accounts in a streamlined and logical manner.</p>
             </div>
             """,
@@ -388,8 +389,8 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Optimized /n Guidance</h3>
-                <p>By providing answers in a more approachable and useful format, the system also aims to make financial decisions seem less daunting.</p>
+                <h3>Optimized  /nGuidance</h3>
+                <p>By providing answers in a more approachable and useful format, the system also aims to make financial decisions seem less daunting to the wider Jamaican public.</p>
             </div>
             """,
             unsafe_allow_html=True
