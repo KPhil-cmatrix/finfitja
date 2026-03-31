@@ -177,15 +177,20 @@ def pour_style():
             border: 1px solid var(--line-soft);
             border-radius: 18px;
             padding: 1rem;
-            min-height: 210px;
+            min-height: 230px;
         }
         .mini-card h3 {
             margin-top: 0;
-            margin-bottom: 0.55rem;
+            margin-bottom: 0.75rem;
             text-align: center;
+            min-height: 88px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .mini-card p {
             margin-bottom: 0;
+            text-align: justify;
         }
         .soft-card {
             background: var(--mint-cream);
@@ -379,7 +384,7 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Structured              <br>Comparisons</h3>
+                <h3>Structured<br>Comparisons</h3>
                 <p>FinFit JA can make it easier to recognize differences in features, convenience, and suitability by comparing banks and accounts in a streamlined and logical manner.</p>
             </div>
             """,
@@ -389,7 +394,7 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Actionable<br>            Guidance</h3>
+                <h3>Actionable<br>Guidance</h3>
                 <p>By providing answers in a more approachable and useful format, the system also aims to make financial decisions seem less daunting to the wider Jamaican public.</p>
             </div>
             """,
