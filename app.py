@@ -27,7 +27,7 @@ MarkPath = "FinFitLogo.png"
 
 #Keeps track of the page currently being viewed
 if "current_view" not in st.session_state:
-    st.session_state.current_view = "Landing Page"
+        st.session_state.current_view = "Home"
 
 #Adds the main site styling
 def pour_style():
@@ -55,6 +55,12 @@ def pour_style():
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Inter', sans-serif;
             color: var(--ink-main);
+        }
+        p, li {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--ink-main);
+            line-height: 1.75;
         }
         section[data-testid="stSidebar"] {
             background: var(--base-side);
@@ -165,12 +171,6 @@ def pour_style():
             color: var(--ink-main);
             margin-bottom: 0.35rem;
         }
-        .hero-text {
-            font-size: 0.98rem;
-            color: var(--ink-soft);
-            line-height: 1.7;
-            margin-bottom: 0;
-        }
         .mini-card {
             background: #ffffff;
             border: 1px solid var(--line-soft);
@@ -181,11 +181,10 @@ def pour_style():
         .mini-card h3 {
             margin-top: 0;
             margin-bottom: 0.55rem;
+            text-align: center;
         }
         .mini-card p {
             margin-bottom: 0;
-            color: var(--ink-soft);
-            line-height: 1.65;
         }
         .soft-card {
             background: var(--mint-cream);
@@ -199,8 +198,7 @@ def pour_style():
             margin-bottom: 0.6rem;
         }
         .soft-card p, .soft-card li {
-            color: var(--ink-soft);
-            line-height: 1.65;
+            margin-bottom: 0;
         }
         .guide-card {
             background: #ffffff;
@@ -216,9 +214,6 @@ def pour_style():
         }
         .guide-card p {
             margin-bottom: 0;
-            color: var(--ink-soft);
-            line-height: 1.6;
-            font-size: 0.95rem;
         }
         .note-box {
             background: #fffdf6;
@@ -230,8 +225,11 @@ def pour_style():
         }
         .note-box p {
             margin: 0;
-            color: var(--ink-soft);
-            line-height: 1.65;
+        }
+        .soft-divider {
+            border: none;
+            border-top: 1px solid var(--line-soft);
+            margin: 1.25rem 0 1rem 0;
         }
         </style>
         """,
@@ -257,8 +255,8 @@ def show_crest():
 def show_trail():
     st.sidebar.markdown('<div class="trail-label">Navigation</div>', unsafe_allow_html=True)
     pages = [
-        "Landing Page",
-        "Regular Chat",
+        "Home",
+        "Ask FinFit",
         "Recommendation Generator",
         "Comparison Profile",
         "Dev Process",
@@ -320,31 +318,26 @@ def hold_page(title: str, text: str):
     )
     show_site_tail()
 
-#Landing Page
+#Landing/Home Page
 def open_landing():
-    show_banner("Landing Page")
-    col1, col2 = st.columns([1.35, 2], gap="medium")
+    show_banner("Home")
+    col1, col2 = st.columns([1.15, 1.85], gap="medium")
     with col1:
         crest = Path(MarkPath)
-        st.markdown('<div class="hero-card">', unsafe_allow_html=True)
         if crest.exists():
             left, mid, right = st.columns([1, 2, 1])
             with mid:
                 st.image(str(crest), use_container_width=True)
         st.markdown('<div class="hero-title">Smarter Banking Starts Here.</div>', unsafe_allow_html=True)
-        st.markdown(
-            '<p class="hero-text">FinFit JA is a Jamaican banking recommendation assistant which was created to aid customers in discovering bank products that better meet their needs.</p>',
-            unsafe_allow_html=True
-        )
-        st.markdown('</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(
             """
             <div class="soft-card">
                 <h3>What is FinFit JA?</h3>
                 <p>FinFit JA is a custom GPT-powered assistant created for the Jamaican banking sector. 
-                It was designed to make it simpler for customers to compare financial products across financial institutions, understand the banking product options that exist, 
-                and receive more pertinent advice without having to sift through dispersed information on their own, through a bank's biased lens.</p>
+                It was designed to make it simpler for customers to compare financial products across financial institutions, 
+                understand the banking product options that exist, and receive more pertinent advice without having to sift through dispersed information on their own, 
+                through a bank's biased lens.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -352,7 +345,8 @@ def open_landing():
         st.markdown(
             """
             <div class="note-box">
-                <p>Whether someone is a student, a first-time account holder, or an established working professional, FinFit JA is meant to support clearer and more confident banking decisions.</p>
+                <p><strong>Whether someone is a student, a first-time account holder, or an established working professional, 
+                FinFit JA is meant to support clearer and more confident banking decisions.</strong></p>
             </div>
             """,
             unsafe_allow_html=True
@@ -361,9 +355,9 @@ def open_landing():
         """
         <div class="soft-card">
             <h3>Why This Matters</h3>
-            <p>Selecting financial services on your own can be difficult, particularly when products from different banks seem similar at first glance 
+            <p>Selecting financial services on your own can be difficult, particularly when products from different banks seem similar at first glance 
             but differ in terms of fees, access, digital features, opening criteria, and general fit. 
-            FinFit JA was created to assist consumers in overcoming this complexity by transforming vast volumes of banking data into more practical, user-focused solutions.</p>
+            FinFit JA was created to assist users in overcoming this complexity by transforming banking data into more practical, user-focused guidance.</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -374,7 +368,7 @@ def open_landing():
             """
             <div class="mini-card">
                 <h3>Tailored Recommendations</h3>
-                <p>Depending on their requirements, such as low fees, or student-friendly access, users can receive personalized account recommendations.</p>
+                <p>Depending on their requirements, such as low fees, student-friendly access, or mobile banking preferences, users can receive personalized account recommendations.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -384,7 +378,7 @@ def open_landing():
             """
             <div class="mini-card">
                 <h3>Clear Comparisons</h3>
-                <p>FinFit JA can make it easier to recognize differences in features, convenience, and suitability by comparing banks and accounts in a streamlined and logical manner.</p>
+                <p>FinFit JA can make it easier to recognize differences in features, convenience, and suitability by comparing banks and accounts in a streamlined and logical manner.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -394,17 +388,17 @@ def open_landing():
             """
             <div class="mini-card">
                 <h3>Simple Guidance</h3>
-                <p>By providing answers in a more approachable and useful format, the system also aims to making financial decisions seem less daunting.</p>
+                <p>By providing answers in a more approachable and useful format, the system also aims to make financial decisions seem less daunting.</p>
             </div>
             """,
             unsafe_allow_html=True
         )
+    st.markdown('<hr class="soft-divider">', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="soft-card">
             <h3>How to Use This Site</h3>
-            <p>Each distinct aspect of the FinFit JA experience is supported by a different component of the app. 
-            Depending upon your intentions or needs, you can switch between them using the navigation sidebar.</p>
+            <p>Each distinct aspect of the FinFit JA experience is supported by a different part of the app. Depending on what you want to do, you can move between them using the sidebar.</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -414,8 +408,8 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Regular Chat</h4>
-                <p>Use this when you want to ask general banking questions in a more natural chat format.</p>
+                <h4>Ask FinFit</h4>
+                <p>Use this when you want to ask general banking questions in a natural chat format.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -424,7 +418,7 @@ def open_landing():
             """
             <div class="guide-card">
                 <h4>Recommendation Generator</h4>
-                <p>Use this when you want the system to recommend accounts based on structured personal preferences and banking needs.</p>
+                <p>Use this when you want the system to recommend accounts based on structured preferences and banking needs.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -460,7 +454,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Landing Page</h4>
+                <h4>Home</h4>
                 <p>You are here. This page introduces the purpose of FinFit JA and shows how to navigate the site effectively.</p>
             </div>
             """,
@@ -475,12 +469,11 @@ def open_landing():
         """,
         unsafe_allow_html=True
     )
-
     show_site_tail()
-
-#Regular Chat
+    
+#Ask FinFit Chat
 def open_chat():
-    hold_page("Regular Chat", "This page will contain the standard chat interface and a clear chat control.")
+    hold_page("Ask FinFit", "This page will contain the standard chat interface and a clear chat control.")
 
 #Recommendation Generator
 def open_matcher():
@@ -501,8 +494,8 @@ def open_scores():
 #Routes the user to the correct page
 def route_view(page_name: str):
     views = {
-        "Landing Page": open_landing,
-        "Regular Chat": open_chat,
+        "Home": open_landing,
+        "Ask FinFit": open_chat,
         "Recommendation Generator": open_matcher,
         "Comparison Profile": open_compare,
         "Dev Process": open_build,
