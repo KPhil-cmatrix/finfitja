@@ -377,7 +377,7 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Clear Comparisons</h3>
+                <h3>Logical Comparisons</h3>
                 <p>FinFit JA can make it easier to recognize differences in features, convenience, and suitability by comparing banks and accounts in a streamlined and logical manner.</p>
             </div>
             """,
@@ -387,7 +387,7 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Simple Guidance</h3>
+                <h3>Streamlined Guidance</h3>
                 <p>By providing answers in a more approachable and useful format, the system also aims to make financial decisions seem less daunting.</p>
             </div>
             """,
