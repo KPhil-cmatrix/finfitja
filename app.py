@@ -424,7 +424,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Recommendation Generator</h4>
+                <h3>Recommendation Generator</h3>
                 <p>Use this when you want the system to recommend accounts based on structured preferences and banking needs.</p>
             </div>
             """,
@@ -433,7 +433,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Comparison Profile</h4>
+                <h3>Comparison Profile</h3>
                 <p>Use this when you want to compare banks or account options side by side in a more focused way.</p>
             </div>
             """,
@@ -443,7 +443,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Dev Process</h4>
+                <h3>Dev Process</h3>
                 <p>Use this section to learn how the system was developed, including technical choices, design decisions, and implementation challenges.</p>
             </div>
             """,
@@ -452,7 +452,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Performance Metrics</h4>
+                <h3>Performance Metrics</h3>
                 <p>Use this section to review the testing approach, evaluation process, and the overall performance of the custom GPT.</p>
             </div>
             """,
@@ -461,7 +461,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Home</h4>
+                <h3>Home</h3>
                 <p>You are here. This page introduces the purpose of FinFit JA and shows how to navigate the site effectively.</p>
             </div>
             """,
