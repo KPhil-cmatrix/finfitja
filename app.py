@@ -151,6 +151,88 @@ def pour_style():
         div.stButton > button:focus {
             box-shadow: none;
         }
+                .hero-card {
+            background: linear-gradient(135deg, rgba(182,223,161,0.24) 0%, rgba(247,243,217,0.82) 100%);
+            border: 1px solid var(--line-soft);
+            border-radius: 20px;
+            padding: 1.2rem 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .hero-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--ink-main);
+            margin-bottom: 0.35rem;
+        }
+        .hero-text {
+            font-size: 0.98rem;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+        .mini-card {
+            background: #ffffff;
+            border: 1px solid var(--line-soft);
+            border-radius: 18px;
+            padding: 1rem;
+            min-height: 210px;
+        }
+        .mini-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.55rem;
+        }
+        .mini-card p {
+            margin-bottom: 0;
+            color: var(--ink-soft);
+            line-height: 1.65;
+        }
+        .soft-card {
+            background: var(--mint-cream);
+            border: 1px solid var(--line-soft);
+            border-radius: 18px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .soft-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.6rem;
+        }
+        .soft-card p, .soft-card li {
+            color: var(--ink-soft);
+            line-height: 1.65;
+        }
+        .guide-card {
+            background: #ffffff;
+            border: 1px solid var(--line-soft);
+            border-radius: 16px;
+            padding: 0.95rem;
+            height: 100%;
+        }
+        .guide-card h4 {
+            margin-top: 0;
+            margin-bottom: 0.45rem;
+            font-size: 1rem;
+        }
+        .guide-card p {
+            margin-bottom: 0;
+            color: var(--ink-soft);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        .note-box {
+            background: #fffdf6;
+            border: 1px solid var(--line-soft);
+            border-left: 4px solid #a8cf8f;
+            border-radius: 14px;
+            padding: 0.9rem 1rem;
+            margin-top: 0.35rem;
+        }
+        .note-box p {
+            margin: 0;
+            color: var(--ink-soft);
+            line-height: 1.65;
+        }
         </style>
         """,
         unsafe_allow_html=True
@@ -240,7 +322,161 @@ def hold_page(title: str, text: str):
 
 #Landing Page
 def open_landing():
-    hold_page("Landing Page", "This is where the homepage, domain overview, full disclaimer, and usage guide will go.")
+    show_banner("Landing Page")
+    col1, col2 = st.columns([1.35, 2], gap="medium")
+    with col1:
+        crest = Path(MarkPath)
+        st.markdown('<div class="hero-card">', unsafe_allow_html=True)
+        if crest.exists():
+            left, mid, right = st.columns([1, 2, 1])
+            with mid:
+                st.image(str(crest), use_container_width=True)
+        st.markdown('<div class="hero-title">Smarter Banking Starts Here.</div>', unsafe_allow_html=True)
+        st.markdown(
+            '<p class="hero-text">FinFit JA is a Jamaican banking recommendation assistant which was created to aid customers in discovering bank products that better meet their needs.</p>',
+            unsafe_allow_html=True
+        )
+        st.markdown('</div>', unsafe_allow_html=True)
+    with col2:
+        st.markdown(
+            """
+            <div class="soft-card">
+                <h3>What is FinFit JA?</h3>
+                <p>FinFit JA is a custom GPT-powered assistant created for the Jamaican banking sector. 
+                It was designed to make it simpler for customers to compare financial products across financial institutions, understand the banking product options that exist, 
+                and receive more pertinent advice without having to sift through dispersed information on their own, through a bank's biased lens.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        st.markdown(
+            """
+            <div class="note-box">
+                <p>Whether someone is a student, a first-time account holder, or an established working professional, FinFit JA is meant to support clearer and more confident banking decisions.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    st.markdown(
+        """
+        <div class="soft-card">
+            <h3>Why This Matters</h3>
+            <p>Selecting financial services on your own can be difficult, particularly when products from different banks seem similar at first glance 
+            but differ in terms of fees, access, digital features, opening criteria, and general fit. 
+            FinFit JA was created to assist consumers in overcoming this complexity by transforming vast volumes of banking data into more practical, user-focused solutions.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    aid1, aid2, aid3 = st.columns(3, gap="medium")
+    with aid1:
+        st.markdown(
+            """
+            <div class="mini-card">
+                <h3>Tailored Recommendations</h3>
+                <p>Depending on their requirements, such as low fees, student-friendly access, or mobile banking preferences, users can receive personalized account recommendations.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    with aid2:
+        st.markdown(
+            """
+            <div class="mini-card">
+                <h3>Clear Comparisons</h3>
+                <p>FinFit JA can make it easier to recognize differences in features, convenience, and suitability by comparing banks and accounts in a streamlined and logical manner.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    with aid3:
+        st.markdown(
+            """
+            <div class="mini-card">
+                <h3>Simple Guidance</h3>
+                <p>By providing answers in a more approachable and useful format, the system also aims to making financial decisions seem less daunting.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    st.markdown(
+        """
+        <div class="soft-card">
+            <h3>How to Use This Site</h3>
+            <p>Each distinct aspect of the FinFit JA experience is supported by a different component of the app. 
+            Depending upon your intentions or needs, you can switch between them using the navigation sidebar.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    use1, use2 = st.columns(2, gap="medium")
+    with use1:
+        st.markdown(
+            """
+            <div class="guide-card">
+                <h4>Regular Chat</h4>
+                <p>Use this when you want to ask general banking questions in a more natural chat format.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        st.markdown(
+            """
+            <div class="guide-card">
+                <h4>Recommendation Generator</h4>
+                <p>Use this when you want the system to recommend accounts based on structured personal preferences and banking needs.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        st.markdown(
+            """
+            <div class="guide-card">
+                <h4>Comparison Profile</h4>
+                <p>Use this when you want to compare banks or account options side by side in a more focused way.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    with use2:
+        st.markdown(
+            """
+            <div class="guide-card">
+                <h4>Dev Process</h4>
+                <p>Use this section to learn how the system was developed, including technical choices, design decisions, and implementation challenges.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        st.markdown(
+            """
+            <div class="guide-card">
+                <h4>Performance Metrics</h4>
+                <p>Use this section to review the testing approach, evaluation process, and the overall performance of the custom GPT.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        st.markdown(
+            """
+            <div class="guide-card">
+                <h4>Landing Page</h4>
+                <p>You are here. This page introduces the purpose of FinFit JA and shows how to navigate the site effectively.</p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+    st.markdown(
+        f"""
+        <div class="soft-card">
+            <h3>Full Disclaimer</h3>
+            <p>{FullNote}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    show_site_tail()
 
 #Regular Chat
 def open_chat():
