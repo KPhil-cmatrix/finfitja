@@ -461,7 +461,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Home</h4>
+                <h3>Home</h3>
                 <p>You are here. This page introduces the purpose of FinFit JA and shows how to navigate the site effectively.</p>
             </div>
             """,
