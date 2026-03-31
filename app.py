@@ -389,7 +389,7 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Approachable Guidance</h3>
+                <h3>Approachable <br> Guidance</h3>
                 <p>By providing answers in a more approachable and useful format, the system also aims to make financial decisions seem less daunting to the wider Jamaican public.</p>
             </div>
             """,
