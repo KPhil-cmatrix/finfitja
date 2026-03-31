@@ -170,6 +170,7 @@ def pour_style():
             font-weight: 800;
             color: var(--ink-main);
             margin-bottom: 0.35rem;
+            text-align: center;
         }
         .mini-card {
             background: #ffffff;
@@ -221,7 +222,7 @@ def pour_style():
             border-left: 4px solid #a8cf8f;
             border-radius: 14px;
             padding: 0.9rem 1rem;
-            margin-top: 0.35rem;
+            margin-top: 0.2rem;
         }
         .note-box p {
             margin: 0;
@@ -377,7 +378,7 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Logical Comparisons</h3>
+                <h3>Rational /n Comparisons</h3>
                 <p>FinFit JA can make it easier to recognize differences in features, convenience, and suitability by comparing banks and accounts in a streamlined and logical manner.</p>
             </div>
             """,
@@ -387,7 +388,7 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Streamlined Guidance</h3>
+                <h3>Optimized /n Guidance</h3>
                 <p>By providing answers in a more approachable and useful format, the system also aims to make financial decisions seem less daunting.</p>
             </div>
             """,
@@ -397,7 +398,7 @@ def open_landing():
     st.markdown(
         """
         <div class="soft-card">
-            <h3>How to Use This Site</h3>
+            <h3>How to Navigate the Platform</h3>
             <p>Each distinct aspect of the FinFit JA experience is supported by a different part of the app. Depending on what you want to do, you can move between them using the sidebar.</p>
         </div>
         """,
@@ -460,6 +461,7 @@ def open_landing():
             """,
             unsafe_allow_html=True
         )
+    st.markdown('<div style="height:0.75rem;"></div>', unsafe_allow_html=True)    
     st.markdown(
         f"""
         <div class="soft-card">
