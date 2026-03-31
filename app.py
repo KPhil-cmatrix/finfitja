@@ -415,7 +415,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Ask FinFit</h4>
+                <h3>Ask FinFit</h3>
                 <p>Use this when you want to ask general banking questions in a natural chat format.</p>
             </div>
             """,
@@ -461,7 +461,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h3>Home</h3>
+                <h4>Home</h4>
                 <p>You are here. This page introduces the purpose of FinFit JA and shows how to navigate the site effectively.</p>
             </div>
             """,
