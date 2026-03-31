@@ -374,7 +374,7 @@ def open_landing():
             """
             <div class="mini-card">
                 <h3>Tailored Recommendations</h3>
-                <p>Depending on their requirements, such as low fees, student-friendly access, or mobile banking preferences, users can receive personalized account recommendations.</p>
+                <p>Depending on their requirements, such as low fees, or student-friendly access, users can receive personalized account recommendations.</p>
             </div>
             """,
             unsafe_allow_html=True
