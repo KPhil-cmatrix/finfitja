@@ -1,7 +1,7 @@
 """
 Developer's Name: Khalia Phillips
 App Name: FinFit JA
-Version: 2.1
+Version: 2.2
 Purpose (File): This file runs the main FinFit JA Streamlit app and routes users between the different sections of the platform.
 """
 
@@ -15,6 +15,17 @@ from pages.dev import open_build
 from pages.metrics import open_scores
 
 st.set_page_config(page_title="FinFit JA", page_icon="💵", layout="wide", initial_sidebar_state="expanded")
+
+#Removes Streamlit automatic page navigation
+st.set_page_config(...)
+st.markdown(
+    """
+    <style>
+    [data-testid="stSidebarNav"] {display: none;}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 #Keeps track of the page the user is currently on
 if "current_view" not in st.session_state:
