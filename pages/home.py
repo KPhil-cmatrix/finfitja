@@ -100,7 +100,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h3>Ask FinFit</h3>
+                <h4>Ask FinFit</h4>
                 <p>Get instant answers to your banking questions in a simple, chat-based format.</p>
             </div>
             """,
@@ -109,7 +109,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h3>Recommendation Generator</h3>
+                <h4>Recommendation Generator</h4>
                 <p>Find bank accounts tailored to your needs based on your preferences and financial goals.</p>
             </div>
             """,
@@ -128,7 +128,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h3>Dev Process</h3>
+                <h4>Dev Process</h4>
                 <p>A behind-the-scenes look at how FinFit JA was designed, built, and refined.</p>
             </div>
             """,
@@ -137,7 +137,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h3>Performance Metrics</h3>
+                <h4>Performance Metrics</h4>
                 <p>A detailed overview of system performance metrics and evaluation insights.</p>
             </div>
             """,
@@ -146,7 +146,7 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h3>Home</h3>
+                <h4>Home</h4>
                 <p> Where you are. Start here for a quick introduction to FinFit JA and a guide to navigating its features.</p>
             </div>
             """,
