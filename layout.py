@@ -1,7 +1,7 @@
 """
 Developer's Name: Khalia Phillips
 App Name: FinFit JA
-Version: 1.0
+Version: 1.2
 Purpose (File): This file manages the shared styling, sidebar layout, header banner, footer, and shared placeholder block for the FinFit JA Streamlit app.
 """
 
@@ -51,9 +51,17 @@ def pour_style():
             font-family: 'Inter', sans-serif;
             color: var(--ink-main);
         }
+        h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
         p, li {
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 400;
             color: var(--ink-main);
             line-height: 1.75;
         }
