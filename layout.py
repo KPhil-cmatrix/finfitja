@@ -1,7 +1,7 @@
 """
 Developer's Name: Khalia Phillips
 App Name: FinFit JA
-Version: 1.2
+Version: 1.3
 Purpose (File): This file manages the shared styling, sidebar layout, header banner, footer, and shared placeholder block for the FinFit JA Streamlit app.
 """
 
@@ -51,8 +51,16 @@ def pour_style():
             font-family: 'Inter', sans-serif;
             color: var(--ink-main);
         }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+        h2 {
+            font-size: 1.65rem;
+            font-weight: 700;
+        }
         h3 {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             font-weight: 700;
         }
         h4 {
@@ -209,10 +217,9 @@ def pour_style():
             padding: 0.95rem;
             height: 100%;
         }
-        .guide-card h3, .guide-card h4 {
+        .guide-card h4 {
             margin-top: 0;
             margin-bottom: 0.45rem;
-            font-size: 1rem;
         }
         .guide-card p {
             margin-bottom: 0;
@@ -264,16 +271,13 @@ def pour_style():
         """,
         unsafe_allow_html=True
     )
-
 #Shows the logo and app identity at the top of the sidebar
 def show_crest():
     crest = Path(MarkPath)
     with st.sidebar:
         st.markdown('<div class="crest-wrap">', unsafe_allow_html=True)
         if crest.exists():
-            left, mid, right = st.columns([1, 2, 1])
-            with mid:
-                st.image(str(crest), use_container_width=True)
+            st.image(str(crest), width=200)
         else:
             st.warning("Logo file not found. Please add it to the app folder.")
         st.markdown(f'<div class="crest-name">{AppTitle}</div>', unsafe_allow_html=True)
