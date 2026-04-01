@@ -17,7 +17,6 @@ from pages.metrics import open_scores
 st.set_page_config(page_title="FinFit JA", page_icon="💵", layout="wide", initial_sidebar_state="expanded")
 
 #Removes Streamlit automatic page navigation
-st.set_page_config(...)
 st.markdown(
     """
     <style>
