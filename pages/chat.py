@@ -7,6 +7,7 @@ Purpose (File): This file manages the Ask FinFit page for the FinFit JA Streamli
 
 import time
 import streamlit as st
+from pages.chat import open_chat
 from layout import show_banner, show_site_tail
 
 #Ask FinFit Chat
