@@ -31,15 +31,15 @@ def pour_style():
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap');
         :root {
-            --mint-main: #b6dfa1;
-            --mint-soft: #edf7e7;
-            --mint-cream: #f1f8ea;
             --base-bg: #fffdf7;
             --base-side: #f7f7eb;
             --banner-fill: #f7f3d9;
-            --line-soft: #d8d1b2;
             --ink-main: #111111;
             --ink-soft: #3b3b3b;
+            --line-soft: #d8d1b2;
+            --mint-cream: #f1f8ea;
+            --mint-main: #b6dfa1;
+            --mint-soft: #edf7e7;
         }
         html, body, [class*="css"] {
             font-family: 'Poppins', sans-serif;
@@ -79,10 +79,7 @@ def pour_style():
             border-right: 1px solid var(--line-soft);
         }
         section[data-testid="stSidebar"] .block-container {
-            padding-top: 0.8rem;
-            padding-bottom: 1rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            padding: 0.8rem 1rem 1rem 1rem;
         }
         .crest-wrap {
             text-align: center;
@@ -99,8 +96,7 @@ def pour_style():
             font-size: 1.95rem;
             font-weight: 800;
             color: var(--ink-main);
-            margin-top: 0.15rem;
-            margin-bottom: 0.15rem;
+            margin: 0.15rem 0;
             text-align: left;
         }
         .crest-note {
@@ -115,6 +111,26 @@ def pour_style():
             font-weight: 600;
             color: #5a5a5a;
             margin: 0.4rem 0 0.7rem 0.1rem;
+        }
+        .page-banner {
+            background: var(--banner-fill);
+            border: 1px solid var(--line-soft);
+            border-radius: 18px;
+            padding: 1.05rem 1rem 0.95rem 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .page-banner .title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.05rem;
+            font-weight: 800;
+            color: var(--ink-main);
+            margin-bottom: 0.12rem;
+        }
+        .page-banner .subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2f2f2f;
         }
         section[data-testid="stSidebar"] div.stButton > button {
             width: 100%;
@@ -134,19 +150,24 @@ def pour_style():
         section[data-testid="stSidebar"] div.stButton > button:hover {
             border-color: #9ecc85;
             background: #fcfff9;
-            color: var(--ink-main);
         }
         section[data-testid="stSidebar"] div.stButton > button:focus {
             box-shadow: none;
             border-color: #9ecc85;
         }
-        .hero-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--ink-main);
-            margin-bottom: 0.35rem;
-            text-align: center;
+        .soft-card {
+            background: var(--mint-cream);
+            border: 1px solid var(--line-soft);
+            border-radius: 18px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        .soft-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.6rem;
+        }
+        .soft-card p, .soft-card li {
+            margin-bottom: 0;
         }
         .mini-card {
             background: #ffffff;
@@ -168,20 +189,6 @@ def pour_style():
             margin-bottom: 0;
             text-align: justify;
         }
-        .soft-card {
-            background: var(--mint-cream);
-            border: 1px solid var(--line-soft);
-            border-radius: 18px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .soft-card h3 {
-            margin-top: 0;
-            margin-bottom: 0.6rem;
-        }
-        .soft-card p, .soft-card li {
-            margin-bottom: 0;
-        }
         .guide-card {
             background: #ffffff;
             border: 1px solid var(--line-soft);
@@ -195,6 +202,13 @@ def pour_style():
         }
         .guide-card p {
             margin-bottom: 0;
+        }
+        .hero-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 0.35rem;
         }
         .note-box {
             background: #fffdf6;
@@ -239,11 +253,26 @@ def pour_style():
             margin-bottom: 0.2rem;
             color: var(--ink-soft);
         }
+        .site-tail {
+            margin-top: 1.7rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid var(--line-soft);
+            text-align: center;
+            font-size: 0.86rem;
+            color: var(--ink-soft);
+        }
+        .side-tail {
+            margin-top: 1rem;
+            padding-top: 0.85rem;
+            border-top: 1px solid rgba(0,0,0,0.12);
+            text-align: center;
+            font-size: 0.84rem;
+            color: var(--ink-soft);
+        }
         </style>
         """,
         unsafe_allow_html=True
-    )
-    
+    )    
 #Shows the logo and app identity at the top of the sidebar
 def show_crest():
     crest = Path(SidebarMarkPath)
