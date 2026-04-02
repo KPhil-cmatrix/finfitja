@@ -7,18 +7,17 @@ Purpose (File): This file manages the Home page for the FinFit JA Streamlit app.
 
 import streamlit as st
 from pathlib import Path
-from layout import show_banner, show_site_tail, MarkPath, FullNote
+from layout import show_banner, show_site_tail, MainMarkPath, FullNote
 
 #Home Page
 def open_landing():
     show_banner("Home")
     col1, col2 = st.columns([1.15, 1.85], gap="medium")
     with col1:
-        crest = Path(MarkPath)
-        if crest.exists():
-            left, mid, right = st.columns([1, 2, 1])
-            with mid:
-                st.image(str(crest), use_container_width=True)
+        logo = Path(MainMarkPath)
+        if logo.exists():
+            st.image(str(logo), width=240)
+        st.markdown('<div style="height:0.3rem;"></div>', unsafe_allow_html=True)
         st.markdown('<div class="hero-title">Smarter Banking Starts Here.</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(
