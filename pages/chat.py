@@ -13,7 +13,6 @@ from util.api_call import ask_finfit_backend
 #Defining the structure and behavior of the Ask FinFit chat interface
 def open_chat():
     show_banner("Ask FinFit")
-    st.error("THIS IS THE NEW CHAT PAGE")
     st.markdown(
         """
         <div class="soft-card">
