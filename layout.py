@@ -269,6 +269,9 @@ def pour_style():
             font-size: 0.84rem;
             color: var(--ink-soft);
         }
+        div.stButton > button {
+            box-shadow: none;
+        }
         </style>
         """,
         unsafe_allow_html=True
