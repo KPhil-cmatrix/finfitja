@@ -8,8 +8,9 @@ Purpose (File): This file manages the Ask FinFit page for the FinFit JA Streamli
 import time
 import streamlit as st
 from layout import show_banner, show_site_tail
+from util.api_call import ask_finfit_backend
 
-# Ask FinFit Chat
+#Defining the structure and behavior of the Ask FinFit chat interface
 def open_chat():
     show_banner("Ask FinFit")
     st.markdown(
@@ -60,7 +61,7 @@ def open_chat():
         st.session_state.chat_log = [
             {
                 "role": "assistant",
-                "content": "Hi — ask me about banking terms, account features, requirements, or financial concepts, and I’ll explain them clearly."
+                "content": "Ask me about banking terms, account features, requirements, or financial concepts, and I’ll explain them clearly."
             }
         ]
     if "pending_prompt" not in st.session_state:
@@ -81,13 +82,16 @@ def open_chat():
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 time.sleep(0.8)
-                reply = build_placeholder_reply(user_input)
+                try:
+                    reply = ask_finfit_backend(user_input)
+                except Exception:
+                    reply = build_placeholder_reply(user_input)
                 st.markdown(reply)
         st.session_state.chat_log.append({"role": "assistant", "content": reply})
         st.rerun()
     show_site_tail()
 
-# Temporary response block until the model call is connected
+#Temporary response block until the model call is connected
 def build_placeholder_reply(user_input: str):
     return (
         f"You asked about: **{user_input}**\n\n"
