@@ -1,7 +1,7 @@
 """
 Developer's Name: Khalia Phillips
 App Name: FinFit JA
-Version: 1.3
+Version: 1.4
 Purpose (File): This file manages the shared styling, sidebar layout, header banner, footer, and shared placeholder block for the FinFit JA Streamlit app.
 """
 
@@ -78,95 +78,66 @@ def pour_style():
             border-right: 1px solid var(--line-soft);
         }
         section[data-testid="stSidebar"] .block-container {
-            padding-top: 1rem;
+            padding-top: 0.8rem;
             padding-bottom: 1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
         .crest-wrap {
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.1rem;
+        }
+        .crest-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0.7rem;
         }
         .crest-name {
             font-family: 'Inter', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.95rem;
             font-weight: 800;
             color: var(--ink-main);
-            margin-top: 0.35rem;
-            margin-bottom: 0.1rem;
+            margin-top: 0.15rem;
+            margin-bottom: 0.15rem;
+            text-align: left;
         }
         .crest-note {
-            font-size: 0.92rem;
+            font-size: 1rem;
             color: var(--ink-soft);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.55rem;
+            text-align: left;
+            line-height: 1.55;
         }
         .trail-label {
-            font-size: 0.8rem;
-            color: #5a5a5a;
-            margin: 0.2rem 0 0.55rem 0.1rem;
-        }
-        .page-banner {
-            background: var(--banner-fill);
-            border: 1px solid var(--line-soft);
-            border-radius: 18px;
-            padding: 1.05rem 1rem 0.95rem 1rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        .page-banner .title {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.05rem;
-            font-weight: 800;
-            color: var(--ink-main);
-            margin-bottom: 0.12rem;
-        }
-        .page-banner .subtitle {
-            font-size: 1rem;
+            font-size: 0.92rem;
             font-weight: 600;
-            color: #2f2f2f;
+            color: #5a5a5a;
+            margin: 0.4rem 0 0.7rem 0.1rem;
         }
-        .panel-card {
-            background: var(--mint-cream);
-            border: 1px solid var(--line-soft);
-            border-radius: 18px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        .panel-card h3 {
-            margin-top: 0;
-            margin-bottom: 0.7rem;
-        }
-        .site-tail {
-            margin-top: 1.7rem;
-            padding-top: 0.9rem;
-            border-top: 1px solid var(--line-soft);
-            text-align: center;
-            font-size: 0.86rem;
-            color: var(--ink-soft);
-        }
-        .side-tail {
-            margin-top: 1rem;
-            padding-top: 0.85rem;
-            border-top: 1px solid rgba(0,0,0,0.12);
-            text-align: center;
-            font-size: 0.84rem;
-            color: var(--ink-soft);
-        }
-        div.stButton > button {
+        section[data-testid="stSidebar"] div.stButton > button {
             width: 100%;
-            text-align: left;
-            border-radius: 12px;
+            min-height: 64px;
+            text-align: center;
+            border-radius: 18px;
             border: 1px solid var(--line-soft);
             background: #ffffff;
             color: var(--ink-main);
             font-weight: 600;
-            padding: 0.75rem 0.85rem;
+            font-size: 1.02rem;
+            padding: 0.9rem 1rem;
             box-shadow: none;
+            margin-bottom: 0.55rem;
+            transition: all 0.18s ease;
         }
-        div.stButton > button:hover {
+        section[data-testid="stSidebar"] div.stButton > button:hover {
             border-color: #9ecc85;
+            background: #fcfff9;
             color: var(--ink-main);
         }
-        div.stButton > button:focus {
+        section[data-testid="stSidebar"] div.stButton > button:focus {
             box-shadow: none;
+            border-color: #9ecc85;
         }
         .hero-title {
             font-family: 'Inter', sans-serif;
