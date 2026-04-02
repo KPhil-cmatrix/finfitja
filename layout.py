@@ -242,19 +242,25 @@ def pour_style():
         """,
         unsafe_allow_html=True
     )
+    
 #Shows the logo and app identity at the top of the sidebar
 def show_crest():
-    crest = Path(MarkPath)
+    crest = Path(SidebarMarkPath)
     with st.sidebar:
         st.markdown('<div class="crest-wrap">', unsafe_allow_html=True)
+        st.markdown('<div class="crest-image">', unsafe_allow_html=True)
         if crest.exists():
-            st.image(str(crest), width=200)
+            st.image(str(crest), use_container_width=True)
         else:
-            st.warning("Logo file not found. Please add it to the app folder.")
-        st.markdown(f'<div class="crest-name">{AppTitle}</div>', unsafe_allow_html=True)
-        st.markdown('<div class="crest-note">Jamaican Banking Recommendation Assistant</div>', unsafe_allow_html=True)
+            st.warning("Sidebar logo file not found. Please add it to the app folder.")
         st.markdown('</div>', unsafe_allow_html=True)
-
+        st.markdown(f'<div class="crest-name">{AppTitle}</div>', unsafe_allow_html=True)
+        st.markdown(
+            '<div class="crest-note">Jamaican Banking Recommendation Assistant</div>',
+            unsafe_allow_html=True
+        )
+        st.markdown('</div>', unsafe_allow_html=True)
+        
 #Shows the sidebar navigation and keeps one tab active
 def show_trail():
     st.sidebar.markdown('<div class="trail-label">Navigation</div>', unsafe_allow_html=True)
