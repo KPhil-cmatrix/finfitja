@@ -21,7 +21,8 @@ FullNote = (
     "all product details with the selected financial institution(s)."
 )
 RightsLine = "© 2026 Khalia Phillips. All rights reserved."
-MarkPath = "FinFitLogo.png"
+SidebarMarkPath = "FinFitLogoSidebar.png"
+MainMarkPath = "FinFitLogo.png"
 
 #Adds the main site styling
 def pour_style():
