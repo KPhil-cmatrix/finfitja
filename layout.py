@@ -98,7 +98,7 @@ def pour_style():
             color: var(--ink-main);
             border: 1px solid var(--line-soft);
             box-shadow: inset 5px 0 0 #9ecc85;
-            font-weight: 700;
+            font-weight: 700 !important;
             opacity: 1;
             cursor: default;
         }
