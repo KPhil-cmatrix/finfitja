@@ -29,99 +29,67 @@ def open_build():
     process_cols_1 = st.columns(3, gap="medium")
 
     with process_cols_1[0]:
-        st.markdown(
-            """
-            <div class="mini-card">
-                <h3>1. Data Collection</h3>
-                <p>
-                    Banking data was collected from seven major commercial banks in Jamaica,
-                    with emphasis on account types, fees, features, and requirements.
-                    Information was verified using official bank sources to improve accuracy
-                    and consistency across the system.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with st.expander("1. Data Collection", expanded=False):
+            st.markdown(
+                """
+                Banking data was collected from seven major commercial banks in Jamaica,
+                with emphasis on account types, fees, features, and requirements.
+                Information was verified using official bank sources to improve accuracy
+                and consistency across the system.
+                """
+            )
 
     with process_cols_1[1]:
-        st.markdown(
-            """
-            <div class="mini-card">
-                <h3>2. Data Structuring</h3>
-                <p>
-                    The collected information was cleaned, standardized, and organized into
-                    structured Markdown datasets. This made it easier for the model to retrieve,
-                    interpret, and apply relevant financial product information consistently.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with st.expander("2. Data Structuring", expanded=False):
+            st.markdown(
+                """
+                The collected information was cleaned, standardized, and organized into
+                structured Markdown datasets. This made it easier for the model to retrieve,
+                interpret, and apply relevant financial product information consistently.
+                """
+            )
 
     with process_cols_1[2]:
-        st.markdown(
-            """
-            <div class="mini-card">
-                <h3>3. Decision Logic</h3>
-                <p>
-                    A rule-based decision logic layer was developed to map user needs to product
-                    features. This allowed the system to evaluate user intent, rank suitable options,
-                    and generate recommendations with supporting explanations.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with st.expander("3. Decision Logic", expanded=False):
+            st.markdown(
+                """
+                A rule-based decision logic layer was developed to map user needs to product
+                features. This allowed the system to evaluate user intent, rank suitable options,
+                and generate recommendations with supporting explanations.
+                """
+            )
 
     process_cols_2 = st.columns(3, gap="medium")
 
     with process_cols_2[0]:
-        st.markdown(
-            """
-            <div class="mini-card">
-                <h3>4. System Integration</h3>
-                <p>
-                    The datasets were integrated into an AnythingLLM workspace, while the GPT model
-                    was connected through OpenRouter. Retrieval-Augmented Generation was used to
-                    improve contextual accuracy by retrieving relevant dataset information first.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with st.expander("4. System Integration", expanded=False):
+            st.markdown(
+                """
+                The datasets were integrated into an AnythingLLM workspace, while the GPT model
+                was connected through OpenRouter. Retrieval-Augmented Generation was used to
+                improve contextual accuracy by retrieving relevant dataset information first.
+                """
+            )
 
     with process_cols_2[1]:
-        st.markdown(
-            """
-            <div class="mini-card">
-                <h3>5. Interface Development</h3>
-                <p>
-                    A Streamlit-based web interface was developed to make the system accessible and
-                    easy to use. The interface supports informational queries, recommendations,
-                    and comparisons in a clean and structured format.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        with st.expander("5. Interface Development", expanded=False):
+            st.markdown(
+                """
+                A Streamlit-based web interface was developed to make the system accessible and
+                easy to use. The interface supports informational queries, recommendations,
+                and comparisons in a clean and structured format.
+                """
+            )
 
     with process_cols_2[2]:
-        st.markdown(
-            """
-            <div class="mini-card">
-                <h3>6. Testing and Refinement</h3>
-                <p>
-                    The system was tested using sample users and different query types to assess
-                    accuracy, relevance, and usability. Based on the findings, datasets, prompts,
-                    and system settings were refined for better consistency and clarity.
-                </p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    st.markdown('<hr class="soft-divider">', unsafe_allow_html=True)
+        with st.expander("6. Testing and Refinement", expanded=False):
+            st.markdown(
+                """
+                The system was tested using sample users and different query types to assess
+                accuracy, relevance, and usability. Based on the findings, datasets, prompts,
+                and system settings were refined for better consistency and clarity.
+                """
+            )
 
     st.markdown(
         """

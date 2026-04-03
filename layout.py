@@ -385,6 +385,21 @@ def pour_style():
         details p {
             margin-bottom: 0.3rem;
         }
+        details {
+            border: 1px solid var(--line-soft);
+            border-radius: 16px;
+            background: #ffffff;
+            padding: 0.2rem 0.4rem;
+            margin-bottom: 0.8rem;
+        }
+        details summary {
+            font-weight: 600;
+            color: var(--ink-main);
+            cursor: pointer;
+        }
+        details p {
+            margin-bottom: 0.3rem;
+        }
         </style>
         """,
         unsafe_allow_html=True
