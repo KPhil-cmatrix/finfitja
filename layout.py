@@ -163,7 +163,7 @@ def pour_style():
             justify-content: center;
             border-radius: 18px;
             border: 1px solid var(--line-soft);
-            border-left: 5px solid #9ecc85;
+            box-shadow: inset 5px 0 0 #9ecc85;
             background: #fcfff9;
             color: var(--ink-main);
             font-weight: 700;
