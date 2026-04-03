@@ -1,7 +1,7 @@
 """
 Developer's Name: Khalia Phillips
 App Name: FinFit JA
-Version: 1.0
+Version: 1.2
 Purpose (File): This file manages the Comparison Profile page for the FinFit JA Streamlit app.
 """
 
@@ -52,18 +52,17 @@ def open_compare():
                 unsafe_allow_html=True
             )
 
-            with st.form("comparison_form"):
-                comparison_type = st.selectbox(
-                    "What would you like to compare?",
-                    [
-                        "Banks",
-                        "Accounts"
-                    ]
-                )
+            comparison_type = st.selectbox(
+                "At what level would you like to compare?",
+                [
+                    "Banks",
+                    "Accounts"
+                ]
+            )
 
-                #Bank Comparison Section
-                if comparison_type == "Banks":
-                    with st.expander("Section 1: Bank Selection", expanded=True):
+            with st.form("comparison_form"):
+                with st.expander("Section 1: Comparison Setup", expanded=True):
+                    if comparison_type == "Banks":
                         first_bank = st.selectbox(
                             "Select the first bank",
                             [
@@ -91,31 +90,7 @@ def open_compare():
                             index=1
                         )
 
-                    with st.expander("Section 2: Comparison Priorities", expanded=True):
-                        focus_area = st.selectbox(
-                            "What do you want to focus on most?",
-                            [
-                                "Overall accessibility",
-                                "Digital banking convenience",
-                                "Branch and ATM access",
-                                "Strengths and services",
-                                "General side-by-side overview"
-                            ]
-                        )
-
-                        user_context = st.selectbox(
-                            "Which best describes your situation?",
-                            [
-                                "Student",
-                                "Working adult",
-                                "Business-minded user",
-                                "General customer"
-                            ]
-                        )
-
-                #Account Comparison Section
-                if comparison_type == "Accounts":
-                    with st.expander("Section 1: Account Selection", expanded=True):
+                    if comparison_type == "Accounts":
                         account_type = st.selectbox(
                             "Which type of account would you like to compare?",
                             [
@@ -153,7 +128,30 @@ def open_compare():
                             index=1
                         )
 
-                    with st.expander("Section 2: Comparison Priorities", expanded=True):
+                with st.expander("Section 2: Comparison Priorities", expanded=True):
+                    if comparison_type == "Banks":
+                        focus_area = st.selectbox(
+                            "What do you want to focus on most?",
+                            [
+                                "Overall accessibility",
+                                "Digital banking convenience",
+                                "Branch and ATM access",
+                                "Strengths and services",
+                                "General side-by-side overview"
+                            ]
+                        )
+
+                        user_context = st.selectbox(
+                            "Which best describes your situation?",
+                            [
+                                "Student",
+                                "Working adult",
+                                "Business-minded user",
+                                "General customer"
+                            ]
+                        )
+
+                    if comparison_type == "Accounts":
                         compare_focus = st.selectbox(
                             "What matters most in this account comparison?",
                             [
@@ -205,7 +203,8 @@ def open_compare():
                     focus_area=focus_area,
                     user_context=user_context
                 )
-            else:
+
+            if comparison_type == "Accounts":
                 prompt = build_account_comparison_prompt(
                     account_type=account_type,
                     first_account_bank=first_account_bank,
