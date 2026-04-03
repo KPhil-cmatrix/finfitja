@@ -363,6 +363,13 @@ def pour_style():
         .empty-result {
             color: var(--ink-soft);
         }
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--ink-main);
+            margin-bottom: 0.2rem;
+        }
         </style>
         """,
         unsafe_allow_html=True
