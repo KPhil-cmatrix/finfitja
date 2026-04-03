@@ -368,7 +368,22 @@ def pour_style():
             font-size: 1.45rem;
             font-weight: 700;
             color: var(--ink-main);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.2rem; 
+        }
+        details {
+            border: 1px solid var(--line-soft);
+            border-radius: 16px;
+            background: #ffffff;
+            padding: 0.2rem 0.4rem;
+            margin-bottom: 0.8rem;
+        }
+        details summary {
+            font-weight: 600;
+            color: var(--ink-main);
+            cursor: pointer;
+        }
+        details p {
+            margin-bottom: 0.3rem;
         }
         </style>
         """,
