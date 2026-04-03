@@ -12,9 +12,9 @@ import streamlit as st
 def ask_finfit_backend(prompt: str) -> str:
     #Retrieves secure credentials from Streamlit
     api_key = st.secrets["ANYTHINGLLM_API_KEY"]
-    workspace_slug = st.secrets["ANYTHINGLLM_WORKSPACE_SLUG"]
+    workspace_slug = st.secrets["WORKSPACE_SLUG"]
     base_url = st.secrets["ANYTHINGLLM_BASE_URL"]
-    ##Builds the workspace chat endpoint
+    #Builds the workspace chat endpoint
     url = f"{base_url}/api/v1/workspace/{workspace_slug}/chat"
     #Defines request headers
     headers = {

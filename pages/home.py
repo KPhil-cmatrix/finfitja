@@ -1,7 +1,7 @@
 """
 Developer's Name: Khalia Phillips
 App Name: FinFit JA
-Version: 1.0
+Version: 1.1
 Purpose (File): This file manages the Home page for the FinFit JA Streamlit app.
 """
 

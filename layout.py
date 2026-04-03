@@ -1,7 +1,7 @@
 """
 Developer's Name: Khalia Phillips
 App Name: FinFit JA
-Version: 1.4
+Version: 1.5
 Purpose (File): This file manages the shared styling, sidebar layout, header banner, footer, and shared placeholder block for the FinFit JA Streamlit app.
 """
 

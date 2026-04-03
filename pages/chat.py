@@ -1,7 +1,7 @@
 """
 Developer's Name: Khalia Phillips
 App Name: FinFit JA
-Version: 2.0
+Version: 3.0
 Purpose (File): This file manages the Ask FinFit page for the FinFit JA Streamlit app.
 """
 
@@ -10,7 +10,7 @@ import streamlit as st
 from layout import show_banner, show_site_tail
 from util.api_call import ask_finfit_backend
 
-#Defining the structure and behavior of the Ask FinFit chat interface
+# Defining the structure and behavior of the Ask FinFit chat interface
 def open_chat():
     show_banner("Ask FinFit")
     st.markdown(
@@ -18,35 +18,33 @@ def open_chat():
         <div class="soft-card">
             <h3>Ask FinFit</h3>
             <p>
-                Use this space to ask informational questions about banking terms, account features,
+                Ask clear, informational questions about banking terms, account features,
                 eligibility requirements, and general financial concepts in Jamaica.
+                This space is designed to help users better understand banking options,
+                requirements, and everyday financial language in a simple, practical way.
+                <br>
+                Looking for tailored account suggestions? Use<strong>Recommendation Generator</strong>.
+                For side-by-side account evaluations, use <strong>Comparison Profile</strong>.
             </p>
         </div>
         """,
         unsafe_allow_html=True
     )
-    control_left, control_right = st.columns([5, 1])
-    with control_left:
-        st.markdown(
-            """
-            <div class="note-box">
-                <p><strong>This page is for explanations and guidance.</strong> For tailored account suggestions, use
-                <strong>Recommendation Generator</strong>. For side-by-side evaluations, use
-                <strong>Comparison Profile</strong>.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-    with control_right:
-        if st.button("↻ Refresh", use_container_width=True):
+    top_left, top_right = st.columns([5, 1])
+    with top_right:
+        if st.button("↻ Refresh Chat", use_container_width=True):
             st.session_state.chat_log = [
                 {
                     "role": "assistant",
-                    "content": "Hi — ask me about banking terms, account features, requirements, or financial concepts, and I’ll explain them clearly."
+                    "content": (
+                        "Hi there! I’m FinFit JA and I'm here to help explain Jamaican banking terms,"
+                        " account features, requirements, and general financial concepts."
+                        " Ask me anything you’d like to understand more clearly."
+                    )
                 }
             ]
+            st.session_state.pending_prompt = None
             st.rerun()
-    st.markdown('<div style="height:0.5rem;"></div>', unsafe_allow_html=True)
     suggestion_cols = st.columns(3, gap="medium")
     suggestions = [
         "What do banks mean by minimum opening deposit?",
@@ -61,17 +59,19 @@ def open_chat():
         st.session_state.chat_log = [
             {
                 "role": "assistant",
-                "content": "Ask me about banking terms, account features, requirements, or financial concepts, and I’ll explain them clearly."
+                "content": (
+                    "Hi there. I’m FinFit JA and I'm here to help explain Jamaican banking terms,"
+                    " account features, requirements, and general financial concepts."
+                    " Ask me anything you’d like to understand more clearly."
+                )
             }
         ]
     if "pending_prompt" not in st.session_state:
         st.session_state.pending_prompt = None
-    st.markdown('<div class="chat-wrap">', unsafe_allow_html=True)
     for message in st.session_state.chat_log:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
-    st.markdown('</div>', unsafe_allow_html=True)
-    user_input = st.chat_input("Ask a banking question")
+    user_input = st.chat_input("What can I help you understand about banking in Jamaica today?")
     if st.session_state.pending_prompt and not user_input:
         user_input = st.session_state.pending_prompt
         st.session_state.pending_prompt = None
@@ -86,14 +86,16 @@ def open_chat():
                     reply = ask_finfit_backend(user_input)
                 except Exception:
                     reply = build_placeholder_reply(user_input)
+
                 st.markdown(reply)
         st.session_state.chat_log.append({"role": "assistant", "content": reply})
         st.rerun()
     show_site_tail()
 
-#Temporary response block until the model call is connected
+
+# Temporary response block until the model call is connected
 def build_placeholder_reply(user_input: str):
     return (
-        f"You asked about: **{user_input}**\n\n"
-        "This section is designed for informational banking questions, so responses here should focus on clear explanations, definitions, and practical guidance rather than recommendations or comparisons."
+        f"I’m not fully connected to the live workspace yet, so here’s a placeholder response for: **{user_input}**.\n\n"
+        "Once the backend connection is active, this page will return real informational answers from the FinFit JA workspace instead of fallback text."
     )
