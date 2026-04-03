@@ -74,8 +74,6 @@ def open_build():
             unsafe_allow_html=True
         )
 
-    st.markdown('<hr class="soft-divider">', unsafe_allow_html=True)
-
     process_cols_2 = st.columns(3, gap="medium")
 
     with process_cols_2[0]:
@@ -123,6 +121,8 @@ def open_build():
             unsafe_allow_html=True
         )
 
+    st.markdown('<hr class="soft-divider">', unsafe_allow_html=True)
+
     st.markdown(
         """
         <div class="soft-card">
@@ -161,8 +161,6 @@ def open_build():
                 predefined tags and improve response relevance through structured matching.
                 """
             )
-
-    st.markdown('<hr class="soft-divider">', unsafe_allow_html=True)
 
     challenge_cols_2 = st.columns(2, gap="medium")
 
