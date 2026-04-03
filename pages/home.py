@@ -16,10 +16,10 @@ def open_landing():
     with col1:
         logo = Path(MainMarkPath)
         if logo.exists():
-            st.markdown('<div class="hero-logo-wrap">', unsafe_allow_html=True)
-            st.image(str(logo), width=240)
-            st.markdown('</div>', unsafe_allow_html=True)
-        st.markdown('<div style="height:0.3rem;"></div>', unsafe_allow_html=True)
+            left, center, right = st.columns([1, 2, 1])
+            with center:
+                st.image(str(logo), width=240)
+        ##st.markdown('<div style="height:0.3rem;"></div>', unsafe_allow_html=True)
         st.markdown('<div class="hero-title">Smarter Banking Starts Here.</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(
