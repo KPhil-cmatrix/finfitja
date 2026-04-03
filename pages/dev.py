@@ -90,7 +90,7 @@ def open_build():
                 and system settings were refined for better consistency and clarity.
                 """
             )
-
+    st.markdown('<hr class="soft-divider">', unsafe_allow_html=True)
     st.markdown(
         """
         <div class="soft-card">
