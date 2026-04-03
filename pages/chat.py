@@ -23,7 +23,7 @@ def open_chat():
             requirements, and everyday financial language in a simple, practical way.</p>
             <br>
             <p>Looking for tailored account suggestions? Use <strong>Recommendation Generator</strong>.
-            For side-by-side account evaluations, use <strong>Comparison Profile</strong>.</p>
+            For side-by-side bank or account evaluations, use <strong>Comparison Profile</strong>.</p>
         </div>
         """,
         unsafe_allow_html=True

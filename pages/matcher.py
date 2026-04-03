@@ -25,7 +25,7 @@ def open_matcher():
                 FinFit JA what matters most to you.
                 <br><br>
                 Need general explanations instead? Use <strong>Ask FinFit</strong>.
-                Want to compare account options side by side? Use <strong>Comparison Profile</strong>.
+                Want to compare bank or account options side by side? Use <strong>Comparison Profile</strong>.
             </p>
         </div>
         """,
