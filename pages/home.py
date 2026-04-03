@@ -16,7 +16,9 @@ def open_landing():
     with col1:
         logo = Path(MainMarkPath)
         if logo.exists():
+            st.markdown('<div class="hero-logo-wrap">', unsafe_allow_html=True)
             st.image(str(logo), width=240)
+            st.markdown('</div>', unsafe_allow_html=True)
         st.markdown('<div style="height:0.3rem;"></div>', unsafe_allow_html=True)
         st.markdown('<div class="hero-title">Smarter Banking Starts Here.</div>', unsafe_allow_html=True)
     with col2:
@@ -44,10 +46,13 @@ def open_landing():
     st.markdown(
         """
         <div class="soft-card">
-            <h3>Why This Matters</h3>
-            <p>The proccess of selecting financial servives on your own can be difficult and tedious, particularly when products from different banks seem similar at 
-            first glance but differ in terms of fees, access, digital features, and general fit. FinFit JA was created to assist users in overcoming this complexity by 
-            transforming banking data into more practical, user-focused guidance.</p>
+            <h3>Why FinFit JA Matters in Jamaican Banking</h3>
+            <p>The process of selecting financial services on your own can be both challenging and time-consuming, 
+            especially when products from different banks seem similar at first glance but differ greatly in regards to accessibility, digital features, 
+            and general suitability. Information is frequently scattered among several sources in the Jamaican banking industry, 
+            making it difficult for customers to make informed judgments.</p>
+            <p>FinFit JA is designed to address these issues by providing a user-friendly interface that consolidates information and offers personalized guidance,
+            making it easier for users to navigate the complex landscape of banking options and make informed decisions that align with their financial goals and needs.</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -151,6 +156,7 @@ def open_landing():
             """,
             unsafe_allow_html=True
         )
+    st.markdown('<hr class="soft-divider">', unsafe_allow_html=True)
     st.markdown('<div style="height:0.75rem;"></div>', unsafe_allow_html=True)
     st.markdown(
         f"""
