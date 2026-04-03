@@ -10,7 +10,7 @@ import streamlit as st
 from layout import show_banner, show_site_tail
 from util.api_call import ask_finfit_backend
 
-# Recommendation Generator
+#Recommendation Generator
 def open_matcher():
     show_banner("Recommendation Generator")
 
@@ -34,16 +34,13 @@ def open_matcher():
     if "matcher_result" not in st.session_state:
         st.session_state.matcher_result = None
 
-    left_col, right_col = st.columns([1.05, 1], gap="large")
+    left_col, right_col = st.columns([1, 1], gap="large")
 
     with left_col:
+        st.markdown('<div class="match-panel">', unsafe_allow_html=True)
+        st.markdown("<h3>Tell FinFit About You</h3>", unsafe_allow_html=True)
         st.markdown(
-            """
-            <div class="soft-card">
-                <h3>Tell FinFit About You</h3>
-                <p>Answer a few quick questions so I can suggest the best-fit account for your needs.</p>
-            </div>
-            """,
+            "<p>Answer a few quick questions so I can recommend the best-fit account for your needs.</p>",
             unsafe_allow_html=True
         )
 
@@ -143,10 +140,14 @@ def open_matcher():
             )
 
             submit_col, reset_col = st.columns(2)
+
             with submit_col:
                 generate = st.form_submit_button("Generate Recommendation", use_container_width=True)
+
             with reset_col:
                 reset = st.form_submit_button("Start Over", use_container_width=True)
+
+        st.markdown("</div>", unsafe_allow_html=True)
 
         if reset:
             st.session_state.matcher_result = None
@@ -179,42 +180,28 @@ def open_matcher():
             st.rerun()
 
     with right_col:
-        st.markdown(
-            """
-            <div class="soft-card">
-                <h3>Your FinFit Match</h3>
-                <p>Your tailored recommendation will appear here once you complete the form.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown('<div class="result-panel">', unsafe_allow_html=True)
+        st.markdown("<h3>Your FinFit Match</h3>", unsafe_allow_html=True)
 
         if st.session_state.matcher_result:
-            st.markdown(
-                f"""
-                <div class="result-card">
-                    {st.session_state.matcher_result}
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+            st.markdown(st.session_state.matcher_result)
         else:
             st.markdown(
                 """
-                <div class="result-card empty-result">
-                    <h4 style="margin-top:0;">No recommendation yet</h4>
-                    <p style="margin-bottom:0;">
-                        Complete the questions on the left, then click
-                        <strong>Generate Recommendation</strong> to see your best-fit account here.
-                    </p>
+                <div class="empty-result">
+                    Complete the questions on the left, then click
+                    <strong>Generate Recommendation</strong> to see your best-fit account here.
                 </div>
                 """,
                 unsafe_allow_html=True
             )
+
+        st.markdown("</div>", unsafe_allow_html=True)
 
     show_site_tail()
 
 
+#Builds a structured prompt from the user's selections
 def build_recommendation_prompt(
     user_type: str,
     age_group: str,
@@ -238,7 +225,7 @@ Give:
 2. One or two alternative options if relevant
 3. A short explanation of why the recommendation fits
 4. Key features the user should notice
-5. A brief note if there are any limitations or trade-offs
+5. A brief note on any limitation or trade-off
 
 Keep the response user-friendly, practical, and tailored.
 
@@ -257,7 +244,6 @@ User profile:
 Important instructions:
 - Recommend specific account names from the dataset only
 - Match the user to the most suitable option based on needs and preferences
-- Prefer low-fee, low-deposit, student-friendly, digital, savings, current, or investment options only when supported by the profile
 - Do not invent products
 - Present the answer clearly with headings and short, readable paragraphs
 """

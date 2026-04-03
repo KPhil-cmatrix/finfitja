@@ -329,6 +329,40 @@ def pour_style():
         div.stButton > button {
             box-shadow: none;
         }
+        .match-panel {
+            background: #ffffff;
+            border: 1px solid var(--line-soft);
+            border-radius: 18px;
+            padding: 1rem;
+            height: 560px;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+        .match-panel h3 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        .match-panel p {
+            margin-bottom: 0.8rem;
+        }
+        .result-panel {
+            background: #ffffff;
+            border: 1px solid var(--line-soft);
+            border-radius: 18px;
+            padding: 1rem;
+            height: 560px;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+        .result-panel h3 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+        .empty-result {
+            color: var(--ink-soft);
+        }
         </style>
         """,
         unsafe_allow_html=True
