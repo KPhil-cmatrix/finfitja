@@ -74,12 +74,33 @@ def pour_style():
             color: var(--ink-main);
             line-height: 1.75;
         }
-        section[data-testid="stSidebar"] {
-            background: var(--base-side);
-            border-right: 1px solid var(--line-soft);
+        section[data-testid="stSidebar"] div.stButton > button {
+            width: 100%;
+            min-height: 64px;
+            text-align: center;
+            border-radius: 18px;
+            border: 1px solid var(--line-soft);
+            background: #ffffff;
+            color: var(--ink-main);
+            font-weight: 600;
+            font-size: 1.02rem;
+            padding: 0.9rem 1rem;
+            box-shadow: none;
+            margin-bottom: 0.55rem;
+            transition: all 0.18s ease;
         }
-        section[data-testid="stSidebar"] .block-container {
-            padding: 0.8rem 1rem 1rem 1rem;
+        section[data-testid="stSidebar"] div.stButton > button:hover {
+            border-color: #9ecc85;
+            background: #fcfff9;
+        }
+        section[data-testid="stSidebar"] div.stButton > button:disabled {
+            background: #fcfff9;
+            color: var(--ink-main);
+            border: 1px solid var(--line-soft);
+            box-shadow: inset 5px 0 0 #9ecc85;
+            font-weight: 700;
+            opacity: 1;
+            cursor: default;
         }
         .crest-wrap {
             text-align: center;
