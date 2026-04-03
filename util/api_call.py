@@ -1,7 +1,7 @@
 """
 Developer's Name: Khalia Phillips
 App Name: FinFit JA
-Version: 1.0
+Version: 1.1
 Purpose (File): This file handles API communication between the Streamlit app and the FinFit JA backend workspace.
 """
 
@@ -11,9 +11,9 @@ import streamlit as st
 #Defines a function to send user queries to the FinFit JA backend and retrieve responses
 def ask_finfit_backend(prompt: str) -> str:
     #Retrieves secure credentials from Streamlit
+    base_url = st.secrets["ANYTHINGLLM_BASE_URL"].rstrip("/")
     api_key = st.secrets["ANYTHINGLLM_API_KEY"]
     workspace_slug = st.secrets["WORKSPACE_SLUG"]
-    base_url = st.secrets["ANYTHINGLLM_BASE_URL"]
     #Builds the workspace chat endpoint
     url = f"{base_url}/api/v1/workspace/{workspace_slug}/chat"
     #Defines request headers
@@ -24,7 +24,7 @@ def ask_finfit_backend(prompt: str) -> str:
     #Defines the request payload
     payload = {
         "message": prompt,
-        "mode": "query"  #Ensures responses are grounded in the dataset
+        "mode": "query"
     }
     #Attempts to connect to the backend and return a response
     try:

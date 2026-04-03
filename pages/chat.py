@@ -17,15 +17,13 @@ def open_chat():
         """
         <div class="soft-card">
             <h3>Ask FinFit</h3>
-            <p>
-                Ask clear, informational questions about banking terms, account features,
-                eligibility requirements, and general financial concepts in Jamaica.
-                This space is designed to help users better understand banking options,
-                requirements, and everyday financial language in a simple, practical way.
-                <br>
-                Looking for tailored account suggestions? Use<strong>Recommendation Generator</strong>.
-                For side-by-side account evaluations, use <strong>Comparison Profile</strong>.
-            </p>
+            <p>Ask clear, informational questions about banking terms, account features,
+            eligibility requirements, and general financial concepts in Jamaica.
+            This space is designed to help users better understand banking options,
+            requirements, and everyday financial language in a simple, practical way.</p>
+            <br>
+            <p>Looking for tailored account suggestions? Use <strong>Recommendation Generator</strong>.
+             For side-by-side account evaluations, use <strong>Comparison Profile</strong>.</p>
         </div>
         """,
         unsafe_allow_html=True
