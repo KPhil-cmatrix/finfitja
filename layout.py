@@ -325,16 +325,15 @@ def show_trail():
     ]
     for page in pages:
         is_active = st.session_state.current_view == page
-        if is_active:
-            st.sidebar.markdown(
-                f'<div class="nav-active">{page}</div>',
-                unsafe_allow_html=True
-            )
-        else:
-            clicked = st.sidebar.button(page, key=f"nav_{page}", use_container_width=True)
-            if clicked:
-                st.session_state.current_view = page
-                st.rerun()
+        clicked = st.sidebar.button(
+            page,
+            key=f"nav_{page}",
+            use_container_width=True,
+            disabled=is_active
+        )
+        if clicked:
+            st.session_state.current_view = page
+            st.rerun()
 
 #Shows the active page in a clean banner at the top
 def show_banner(page_name:str):
