@@ -155,6 +155,23 @@ def pour_style():
             box-shadow: none;
             border-color: #9ecc85;
         }
+        .nav-active {
+            width: 100%;
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            border: 1px solid var(--line-soft);
+            border-left: 5px solid #9ecc85;
+            background: #fcfff9;
+            color: var(--ink-main);
+            font-weight: 700;
+            font-size: 1.02rem;
+            padding: 0.9rem 1rem;
+            margin-bottom: 0.55rem;
+            box-sizing: border-box;
+        }
         .soft-card {
             background: var(--mint-cream);
             border: 1px solid var(--line-soft);
@@ -275,7 +292,8 @@ def pour_style():
         </style>
         """,
         unsafe_allow_html=True
-    )    
+    ) 
+
 #Shows the logo and app identity at the top of the sidebar
 def show_crest():
     crest = Path(SidebarMarkPath)
@@ -306,9 +324,17 @@ def show_trail():
         "Performance Metrics"
     ]
     for page in pages:
-        clicked = st.sidebar.button(page, key=f"nav_{page}", use_container_width=True)
-        if clicked:
-            st.session_state.current_view = page
+        is_active = st.session_state.current_view == page
+        if is_active:
+            st.sidebar.markdown(
+                f'<div class="nav-active">{page}</div>',
+                unsafe_allow_html=True
+            )
+        else:
+            clicked = st.sidebar.button(page, key=f"nav_{page}", use_container_width=True)
+            if clicked:
+                st.session_state.current_view = page
+                st.rerun()
 
 #Shows the active page in a clean banner at the top
 def show_banner(page_name:str):
