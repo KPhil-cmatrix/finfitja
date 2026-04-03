@@ -36,8 +36,8 @@ def open_landing():
         st.markdown(
             """
             <div class="note-box">
-                <p><strong>Whether someone is a student, a first-time account holder, or an established working professional,
-                FinFit JA is meant to support clearer and more confident banking decisions.</strong></p>
+                <p><strong>"Whether you are a student, or an established working professional,
+                FinFit JA intends to ensure that you find your best Financial, or FinFit." - K.Phillips (Developer) </strong></p>
             </div>
             """,
             unsafe_allow_html=True
@@ -46,11 +46,12 @@ def open_landing():
     st.markdown(
         """
         <div class="soft-card">
-            <h3>Why FinFit JA Matters in Jamaican Banking</h3>
+            <h3>Why This Matters in Jamaican Banking</h3>
             <p>The process of selecting financial services on your own can be both challenging and time-consuming, 
             especially when products from different banks seem similar at first glance but differ greatly in regards to accessibility, digital features, 
             and general suitability. Information is frequently scattered among several sources in the Jamaican banking industry, 
             making it difficult for customers to make informed judgments.</p>
+            <p> </p>
             <p>FinFit JA is designed to address these issues by providing a user-friendly interface that consolidates information and offers personalized guidance,
             making it easier for users to navigate the complex landscape of banking options and make informed decisions that align with their financial goals and needs.</p>
         </div>
