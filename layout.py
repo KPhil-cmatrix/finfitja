@@ -241,6 +241,25 @@ def pour_style():
         .guide-card p {
             margin-bottom: 0;
         }
+        .result-card {
+            background: #ffffff;
+            border: 1px solid var(--line-soft);
+            border-radius: 18px;
+            padding: 1rem;
+            min-height: 430px;
+        }
+        .result-card p:first-child,
+        .result-card h1:first-child,
+        .result-card h2:first-child,
+        .result-card h3:first-child,
+        .result-card h4:first-child {
+            margin-top: 0;
+        }
+        .empty-result {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
         .hero-title {
             font-family: 'Inter', sans-serif;
             font-size: 2rem;
