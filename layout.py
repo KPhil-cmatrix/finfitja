@@ -106,8 +106,8 @@ def pour_style():
             border: 1px solid var(--line-soft);
             box-shadow: inset 6px 0 0 #9ecc85;
             font-weight: 800 !important;
-            font-size: 1.16rem !important;
-            opacity: 1 !important;
+            font-size: 1.16rem;
+            opacity: 1;
             cursor: default;
             -webkit-text-fill-color: var(--ink-main) !important;
         }

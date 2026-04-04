@@ -1,15 +1,15 @@
 """
-Developer's Name: Khalia Phillips
-App Name: FinFit JA
-Version: 1.1
-Purpose (File): This file manages the Home page for the FinFit JA Streamlit app.
+Developer: Khalia Phillips
+App: FinFit JA
+Version: 1.5
+Purpose: Manages the Home page for the FinFit JA Streamlit app.
 """
 
-import streamlit as st
 from pathlib import Path
-from layout import show_banner, show_site_tail, MainMarkPath, FullNote
+import streamlit as st
+from layout import FullNote, MainMarkPath, show_banner, show_site_tail
 
-#Home Page
+#Opening the Home page
 def open_landing():
     show_banner("Home")
     col1, col2 = st.columns([1.15, 1.85], gap="medium")
@@ -19,7 +19,6 @@ def open_landing():
             left, center, right = st.columns([1, 2, 1])
             with center:
                 st.image(str(logo), width=240)
-        ##st.markdown('<div style="height:0.3rem;"></div>', unsafe_allow_html=True)
         st.markdown('<div class="hero-title">Smarter Banking Starts Here.</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(
@@ -27,8 +26,8 @@ def open_landing():
             <div class="soft-card">
                 <h3>What is FinFit JA?</h3>
                 <p>FinFit JA is a custom GPT-powered assistant created for the Jamaican banking sector. 
-                It was designed to make it easier for customers to compare similar products across financial institutions, better understand the 
-                options that exist, and receive pertinent advice without having to sift through dispersed information on their own.</p>
+                It was designed to make it easier for customers to compare similar products across financial institutions, 
+                better understand the options available to them, and receive relevant guidance without having to sort through scattered information on their own.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -36,8 +35,8 @@ def open_landing():
         st.markdown(
             """
             <div class="note-box">
-                <p><strong>"Whether you are a student, or an established working professional,
-                FinFit JA intends to ensure that you find your best financial fit, or FinFit for short." - K.Phillips (Developer) </strong></p>
+                <p><strong>"From students who are just starting out, to established working professionals who are looking to optimize their financial portfolios, 
+                FinFit JA is designed to help everyone find their best financial fit." - Khalia Phillips, 2026</strong></p>
             </div>
             """,
             unsafe_allow_html=True
@@ -48,12 +47,13 @@ def open_landing():
         <div class="soft-card">
             <h3>Why This Matters in Jamaican Banking</h3>
             <p>The process of selecting financial services on your own can be both challenging and time-consuming, 
-            especially when products from different banks seem similar at first glance but differ greatly in regards to accessibility, digital features, 
-            and general suitability. Information is frequently scattered among several sources in the Jamaican banking industry, 
-            making it difficult for customers to make informed judgments.</p>
+            especially when products from different banks seem similar at first glance but differ greatly in accessibility, 
+            digital features, and general suitability. 
+            Information is frequently scattered across multiple sources in the Jamaican banking sector, 
+            making it harder for customers to make well-informed decisions.</p>
             <br>
-            <p>FinFit JA is designed to address these issues by providing a user-friendly interface that consolidates information and offers personalized guidance,
-            making it easier for users to navigate the complex landscape of banking options and make informed decisions that align with their financial goals and needs.</p>
+            <p>FinFit JA is designed to address these issues by providing a user-friendly interface that consolidates information and offers more personalized guidance, 
+            making it easier for users to navigate the banking landscape and make decisions that better align with their financial goals and needs.</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -64,7 +64,8 @@ def open_landing():
             """
             <div class="mini-card">
                 <h3>Tailored Recommendations</h3>
-                <p>Depending on their requirements, such as low fees, student-friendly access, or mobile banking preferences, users can receive personalized account recommendations.</p>
+                <p>Depending on their needs, such as low fees, student-friendly access, 
+                or mobile banking preferences, users can receive more personalized account recommendations.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -74,7 +75,8 @@ def open_landing():
             """
             <div class="mini-card">
                 <h3>Structured<br>Comparisons</h3>
-                <p>FinFit JA can make it easier to recognize differences in features, convenience, and suitability by comparing banks and accounts in a streamlined and logical manner.</p>
+                <p>FinFit JA makes it easier to identify differences in features, convenience, 
+                and suitability by comparing banks and accounts in a streamlined and logical way.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -84,7 +86,8 @@ def open_landing():
             """
             <div class="mini-card">
                 <h3>Actionable<br>Guidance</h3>
-                <p>By providing answers in a more approachable and useful format, the system also aims to make financial decisions seem less daunting to the wider Jamaican public.</p>
+                <p>By presenting responses in a more approachable and useful format, 
+                the system also aims to make financial decision-making feel less daunting to the wider Jamaican public.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -94,8 +97,8 @@ def open_landing():
         """
         <div class="soft-card">
             <h3>How to Navigate the Platform</h3>
-            <p>Each distinct aspect of the FinFit JA experience is supported by different component of the app. 
-            Depending on your intention, you can move between them using the sidebar.</p>
+            <p>Each distinct aspect of the FinFit JA experience is supported by a different component of the app. 
+            Depending on your goal, you can move between them using the sidebar.</p>
         </div>
         """,
         unsafe_allow_html=True
@@ -123,8 +126,8 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h3>Comparison Profile</h3>
-                <p>Explore and compare different bank accounts side by side to see what fits best.</p>
+                <h4>Comparison Profile</h4>
+                <p><p>Compare banks or accounts side by side to clearly see differences in features, accessibility, and overall fit.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -133,8 +136,8 @@ def open_landing():
         st.markdown(
             """
             <div class="guide-card">
-                <h4>Dev Process</h4>
-                <p>A behind-the-scenes look at how FinFit JA was designed, built, and refined.</p>
+                <h4>Development Overview</h4>
+                <p>A behind-the-scenes look at how FinFit JA was designed, built, tested, and refined.</p>
             </div>
             """,
             unsafe_allow_html=True
@@ -152,7 +155,7 @@ def open_landing():
             """
             <div class="guide-card">
                 <h4>Home</h4>
-                <p> Where you are. Start here for a quick introduction to FinFit JA and a guide to navigating its features.</p>
+                <p>Where you are. Start here for a quick introduction to FinFit JA and a guide to navigating its features.</p>
             </div>
             """,
             unsafe_allow_html=True
