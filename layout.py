@@ -1,12 +1,12 @@
 """
-Developer's Name: Khalia Phillips
-App Name: FinFit JA
-Version: 1.5
-Purpose (File): This file manages the shared styling, sidebar layout, header banner, footer, and shared placeholder block for the FinFit JA Streamlit app.
+Developer: Khalia Phillips
+App: FinFit JA
+Version: 1.8
+Purpose: Manages the shared styling, sidebar layout, page banner, footer, and common platform elements for the FinFit JA Streamlit app.
 """
 
-import streamlit as st
 from pathlib import Path
+import streamlit as st
 
 #Brand Values
 AppTitle = "FinFit JA"
@@ -24,7 +24,7 @@ RightsLine = "© 2026 Khalia Phillips. All rights reserved."
 SidebarMarkPath = "FinFitLogoSidebar.png"
 MainMarkPath = "FinFitLogo.png"
 
-#Adds the main site styling
+#Adding the main site styling
 def pour_style():
     st.markdown(
         """
@@ -93,12 +93,17 @@ def pour_style():
             border-color: #9ecc85;
             background: #fcfff9;
         }
+        section[data-testid="stSidebar"] div.stButton > button:focus {
+            box-shadow: none;
+            border-color: #9ecc85;
+        }
         section[data-testid="stSidebar"] div.stButton > button:disabled {
             background: #fcfff9;
             color: var(--ink-main);
             border: 1px solid var(--line-soft);
             box-shadow: inset 5px 0 0 #9ecc85;
             font-weight: 700;
+            font-size: 1.1rem;
             opacity: 1;
             cursor: default;
         }
@@ -143,55 +148,15 @@ def pour_style():
         }
         .page-banner .title {
             font-family: 'Inter', sans-serif;
-            font-size: 2.05rem;
+            font-size: 2.3rem;
             font-weight: 800;
             color: var(--ink-main);
-            margin-bottom: 0.12rem;
+            margin-bottom: 0.18rem;
         }
         .page-banner .subtitle {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #2f2f2f;
-        }
-        section[data-testid="stSidebar"] div.stButton > button {
-            width: 100%;
-            min-height: 64px;
-            text-align: center;
-            border-radius: 18px;
-            border: 1px solid var(--line-soft);
-            background: #ffffff;
-            color: var(--ink-main);
-            font-weight: 600;
-            font-size: 1.02rem;
-            padding: 0.9rem 1rem;
-            box-shadow: none;
-            margin-bottom: 0.55rem;
-            transition: all 0.18s ease;
-        }
-        section[data-testid="stSidebar"] div.stButton > button:hover {
-            border-color: #9ecc85;
-            background: #fcfff9;
-        }
-        section[data-testid="stSidebar"] div.stButton > button:focus {
-            box-shadow: none;
-            border-color: #9ecc85;
-        }
-        .nav-active {
-            width: 100%;
-            min-height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 18px;
-            border: 1px solid var(--line-soft);
-            box-shadow: inset 5px 0 0 #9ecc85;
-            background: #fcfff9;
-            color: var(--ink-main);
+            font-size: 1.35rem;
             font-weight: 700;
-            font-size: 1.02rem;
-            padding: 0.9rem 1rem;
-            margin-bottom: 0.55rem;
-            box-sizing: border-box;
+            color: #2f2f2f;
         }
         .soft-card {
             background: var(--mint-cream);
@@ -259,6 +224,7 @@ def pour_style():
             display: flex;
             flex-direction: column;
             justify-content: center;
+            color: var(--ink-soft);
         }
         .hero-title {
             font-family: 'Inter', sans-serif;
@@ -360,30 +326,12 @@ def pour_style():
             margin-top: 0;
             margin-bottom: 0.75rem;
         }
-        .empty-result {
-            color: var(--ink-soft);
-        }
         .section-title {
             font-family: 'Inter', sans-serif;
             font-size: 1.45rem;
             font-weight: 700;
             color: var(--ink-main);
-            margin-bottom: 0.2rem; 
-        }
-        details {
-            border: 1px solid var(--line-soft);
-            border-radius: 16px;
-            background: #ffffff;
-            padding: 0.2rem 0.4rem;
-            margin-bottom: 0.8rem;
-        }
-        details summary {
-            font-weight: 600;
-            color: var(--ink-main);
-            cursor: pointer;
-        }
-        details p {
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
         details {
             border: 1px solid var(--line-soft);
@@ -403,9 +351,9 @@ def pour_style():
         </style>
         """,
         unsafe_allow_html=True
-    ) 
+    )
 
-#Shows the logo and app identity at the top of the sidebar
+#Showing the logo and app identity at the top of the sidebar
 def show_crest():
     crest = Path(SidebarMarkPath)
     with st.sidebar:
@@ -417,13 +365,10 @@ def show_crest():
             st.warning("Sidebar logo file not found. Please add it to the app folder.")
         st.markdown('</div>', unsafe_allow_html=True)
         st.markdown(f'<div class="crest-name">{AppTitle}</div>', unsafe_allow_html=True)
-        st.markdown(
-            '<div class="crest-note">Jamaican Banking Recommendation Assistant</div>',
-            unsafe_allow_html=True
-        )
+        st.markdown('<div class="crest-note">Jamaican Banking Recommendation Assistant</div>', unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
-        
-#Shows the sidebar navigation and keeps one tab active
+
+#Showing the sidebar navigation and tracking the active page
 def show_trail():
     st.sidebar.markdown('<div class="trail-label">Navigation</div>', unsafe_allow_html=True)
     pages = [
@@ -431,7 +376,7 @@ def show_trail():
         "Ask FinFit",
         "Recommendation Generator",
         "Comparison Profile",
-        "Dev Process",
+        "Development Overview",
         "Performance Metrics"
     ]
     for page in pages:
@@ -446,7 +391,7 @@ def show_trail():
             st.session_state.current_view = page
             st.rerun()
 
-#Shows the active page in a clean banner at the top
+#Showing the active page in the top banner
 def show_banner(page_name:str):
     st.markdown(
         f"""
@@ -458,7 +403,7 @@ def show_banner(page_name:str):
         unsafe_allow_html=True
     )
 
-#Shows the site footer
+#Showing the site footer
 def show_site_tail():
     st.markdown(
         f"""
@@ -470,20 +415,20 @@ def show_site_tail():
         unsafe_allow_html=True
     )
 
-#Shows the lower sidebar information
+#Showing the lower sidebar information
 def show_trail_end():
     st.sidebar.markdown(
         f"""
         <div class="side-tail">
             <div><strong>{BuildTag}</strong></div>
             <div>{MakerLine}</div>
-            <div style="margin-top:0.4rem;"><a href="{RepoLink}" target="_blank">GitHub</a></div>
+            <div style="margin-top:0.4rem;"><a href="{RepoLink}" target="_blank">GitHub Repository</a></div>
         </div>
         """,
         unsafe_allow_html=True
     )
 
-#Temporary page block until each section is built
+#Showing a temporary page block
 def hold_page(title:str, text:str):
     show_banner(title)
     st.markdown(
