@@ -68,7 +68,7 @@ def open_matcher():
                             "Manage my everyday spending more efficiently",
                             "Start with a simple and easy-to-maintain account",
                             "Earn interest on my money where possible",
-                            "Set aside money for a specific goal (e.g. school, car, emergency fund)"
+                            "Set aside money for a specific goal"
                         ]
                     )
                     monthly_income = st.selectbox(
@@ -163,7 +163,7 @@ def open_matcher():
                 try:
                     st.session_state.matcher_result = ask_finfit_backend(prompt)
                 except Exception:
-                    st.session_state.matcher_result = "Sorry! I couldn’t generate a recommendation right now. Please try again in a moment."
+                    st.session_state.matcher_result = "Sorry, I couldn’t generate a recommendation right now. Please try again in a moment."
             st.rerun()
     #Recommendation output panel
     with right_col:

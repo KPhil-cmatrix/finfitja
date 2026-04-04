@@ -1,8 +1,8 @@
 """
-Developer's Name: Khalia Phillips
-App Name: FinFit JA
-Version: 1.2
-Purpose (File): This file manages the Comparison Profile page for the FinFit JA Streamlit app.
+Developer: Khalia Phillips
+App: FinFit JA
+Version: 1.5
+Purpose: Manages the Comparison Profile page.
 """
 
 import time
@@ -10,86 +10,74 @@ import streamlit as st
 from layout import show_banner, show_site_tail
 from util.api_call import ask_finfit_backend
 
-
-#Comparison Profile Page
+#Defining the Comparison Profile page
 def open_compare():
     show_banner("Comparison Profile")
-
     st.markdown(
         """
         <div class="soft-card">
             <h3>Comparison Profile</h3>
-            <p>
-                Use this page to compare banks or account options side by side based on the features
-                that matter most to you. Choose what you want to compare, complete the form, and
-                FinFit JA will generate a structured comparison for you.
-                <br><br>
-                Want a tailored recommendation instead? Use <strong>Recommendation Generator</strong>.
-                Need general explanations? Use <strong>Ask FinFit</strong>.
-            </p>
+            <p>Use this page to compare banks or account options side by side based on the features that matter most to you. 
+            Choose the type of comparison you want, complete the form, and FinFit JA will generate a structured result for you.</p>
+            <br>
+            <p>Want a tailored recommendation instead? Use <strong>Recommendation Generator</strong>. 
+            Need general explanations? Use <strong>Ask FinFit</strong>.</p>
         </div>
         """,
         unsafe_allow_html=True
     )
-
-    #Creates state value for comparison results
+    #Creating session state for comparison results
     if "compare_result" not in st.session_state:
         st.session_state.compare_result = None
-
-    #Creates the main two-column layout
+    #Creating the main two-column layout
     left_col, right_col = st.columns(2, gap="large")
-
-    #Left Side - Comparison Form
+    #Comparison form panel
     with left_col:
         with st.container(height=640, border=True):
             st.markdown(
                 """
                 <h3 style="text-align:center; margin-bottom:0.55rem;">Build Your Comparison</h3>
-                <p style="margin-bottom:1rem;">
-                    Select what you want to compare, then tell FinFit what matters most in the comparison.
-                </p>
+                <p style="margin-bottom:1rem;">Select what you would like to compare, 
+                then tell FinFit JA what matters most in the comparison.</p>
                 """,
                 unsafe_allow_html=True
             )
-
             comparison_type = st.selectbox(
-                "At what level would you like to compare?",
+                "What would you like to compare?",
                 [
                     "Banks",
                     "Accounts"
                 ]
             )
-
             with st.form("comparison_form"):
+                #Comparison setup expander
                 with st.expander("Section 1: Comparison Setup", expanded=True):
                     if comparison_type == "Banks":
                         first_bank = st.selectbox(
-                            "Select the first bank",
+                            "Select the first bank for comparison",
                             [
                                 "NCB",
                                 "Scotiabank",
                                 "CIBC",
-                                "FGB",
+                                "First Global Bank",
                                 "JN Bank",
                                 "Sagicor Bank",
                                 "JMMB Bank"
                             ]
                         )
-
                         second_bank = st.selectbox(
-                            "Select the second bank",
+                            "Select the second bank for comparison",
                             [
                                 "NCB",
                                 "Scotiabank",
                                 "CIBC",
-                                "FGB",
+                                "First Global Bank",
                                 "JN Bank",
                                 "Sagicor Bank",
                                 "JMMB Bank"
                             ],
                             index=1
                         )
-
                     if comparison_type == "Accounts":
                         account_type = st.selectbox(
                             "Which type of account would you like to compare?",
@@ -100,38 +88,36 @@ def open_compare():
                                 "Money Market"
                             ]
                         )
-
                         first_account_bank = st.selectbox(
-                            "Choose the first bank",
+                            "Select the first bank for comparison",
                             [
                                 "NCB",
                                 "Scotiabank",
                                 "CIBC",
                                 "JN Bank",
-                                "FGB",
+                                "First Global Bank",
                                 "Sagicor Bank",
                                 "JMMB Bank"
                             ]
                         )
-
                         second_account_bank = st.selectbox(
-                            "Choose the second bank",
+                            "Select the second bank for comparison",
                             [
                                 "NCB",
                                 "Scotiabank",
                                 "CIBC",
                                 "JN Bank",
-                                "FGB",
+                                "First Global Bank",
                                 "Sagicor Bank",
                                 "JMMB Bank"
                             ],
                             index=1
                         )
-
+                #Comparison priorities expander
                 with st.expander("Section 2: Comparison Priorities", expanded=True):
                     if comparison_type == "Banks":
                         focus_area = st.selectbox(
-                            "What do you want to focus on most?",
+                            "What would you like the comparison to focus on?",
                             [
                                 "Overall accessibility",
                                 "Digital banking convenience",
@@ -140,20 +126,18 @@ def open_compare():
                                 "General side-by-side overview"
                             ]
                         )
-
                         user_context = st.selectbox(
-                            "Which best describes your situation?",
+                            "Which term best describes you?",
                             [
                                 "Student",
-                                "Working adult",
-                                "Business-minded user",
-                                "General customer"
+                                "Employed / Salaried",
+                                "Self-employed / Entrepreneur",
+                                "General Customer"
                             ]
                         )
-
                     if comparison_type == "Accounts":
                         compare_focus = st.selectbox(
-                            "What matters most in this account comparison?",
+                            "What matters most to you in this account comparison?",
                             [
                                 "Low fees and low entry requirements",
                                 "Digital banking features",
@@ -162,40 +146,33 @@ def open_compare():
                                 "General side-by-side overview"
                             ]
                         )
-
                         user_context = st.selectbox(
-                            "Which best describes your situation?",
+                            "Which term best describes you?",
                             [
                                 "Student",
-                                "Working adult",
-                                "Saver",
-                                "General customer"
+                                "Employed / Salaried",
+                                "Self-employed / Entrepreneur",
+                                "General Customer"
                             ]
                         )
-
+                #Form buttons
                 submit_col, reset_col = st.columns(2)
-
                 with submit_col:
                     generate = st.form_submit_button("Generate Comparison", use_container_width=True)
-
                 with reset_col:
                     reset = st.form_submit_button("Start Over", use_container_width=True)
-
-        #Handles Reset
+        #Handling reset
         if reset:
             st.session_state.compare_result = None
             st.rerun()
-
-        #Handles Comparison Generation
+        #Handling comparison generation
         if generate:
             if comparison_type == "Banks" and first_bank == second_bank:
                 st.session_state.compare_result = "Please choose two different banks for the comparison."
                 st.rerun()
-
             if comparison_type == "Accounts" and first_account_bank == second_account_bank:
                 st.session_state.compare_result = "Please choose two different banks for the comparison."
                 st.rerun()
-
             if comparison_type == "Banks":
                 prompt = build_bank_comparison_prompt(
                     first_bank=first_bank,
@@ -203,7 +180,6 @@ def open_compare():
                     focus_area=focus_area,
                     user_context=user_context
                 )
-
             if comparison_type == "Accounts":
                 prompt = build_account_comparison_prompt(
                     account_type=account_type,
@@ -212,20 +188,14 @@ def open_compare():
                     compare_focus=compare_focus,
                     user_context=user_context
                 )
-
             with st.spinner("Building your comparison..."):
                 time.sleep(0.8)
                 try:
                     st.session_state.compare_result = ask_finfit_backend(prompt)
                 except Exception:
-                    st.session_state.compare_result = (
-                        "Sorry — I couldn’t generate a comparison right now. "
-                        "Please try again in a moment."
-                    )
-
+                    st.session_state.compare_result = "Sorry, I couldn’t generate a comparison right now. Please try again in a moment."
             st.rerun()
-
-    #Right Side - Comparison Output
+    #Comparison output panel
     with right_col:
         with st.container(height=640, border=True):
             st.markdown(
@@ -234,25 +204,18 @@ def open_compare():
                 """,
                 unsafe_allow_html=True
             )
-
             if st.session_state.compare_result:
                 st.markdown(st.session_state.compare_result)
             else:
                 st.markdown(
                     """
-                    <p style="margin-bottom:0;">
-                        Complete the form on the left, then click
-                        <strong>Generate Comparison</strong>
-                        to see your side-by-side result here.
-                    </p>
+                    <p style="margin-bottom:0;">Complete the form on the left, then click <strong>Generate Comparison</strong> to see your side-by-side result here.</p>
                     """,
                     unsafe_allow_html=True
                 )
-
     show_site_tail()
 
-
-#Builds a structured prompt for bank comparison
+#Building the bank comparison prompt
 def build_bank_comparison_prompt(
     first_bank: str,
     second_bank: str,
@@ -279,8 +242,7 @@ Important instructions:
 - Do not invent information
 """
 
-
-#Builds a structured prompt for account comparison
+#Building the account comparison prompt
 def build_account_comparison_prompt(
     account_type: str,
     first_account_bank: str,
