@@ -1,7 +1,7 @@
 """
 Developer: Khalia Phillips
 App: FinFit JA
-Version: 1.5
+Version: 1.6
 Purpose: Manages the Comparison Profile page.
 """
 
@@ -117,7 +117,7 @@ def open_compare():
                 with st.expander("Section 2: Comparison Priorities", expanded=True):
                     if comparison_type == "Banks":
                         focus_area = st.selectbox(
-                            "What would you like the comparison to focus on?",
+                            "What would you like the bank comparison to focus on?",
                             [
                                 "Overall accessibility",
                                 "Digital banking convenience",
