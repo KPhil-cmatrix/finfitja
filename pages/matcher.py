@@ -1,7 +1,7 @@
 """
 Developer: Khalia Phillips
 App: FinFit JA
-Version: 1.4
+Version: 1.5
 Purpose: Manages the Recommendation Generator page.
 """
 
