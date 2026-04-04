@@ -40,7 +40,7 @@ def open_chat():
     st.markdown('<div style="height:0.35rem;"></div>', unsafe_allow_html=True)
     refresh_left, refresh_mid, refresh_right = st.columns([1.2, 1, 1.2])
     with refresh_mid:
-        if st.button("Start Fresh", use_container_width=True):
+        if st.button("Refresh Chat", use_container_width=True):
             st.session_state.chat_log = [
                 {
                     "role": "assistant",
