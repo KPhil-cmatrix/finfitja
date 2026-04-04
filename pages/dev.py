@@ -2,7 +2,7 @@
 Developer: Khalia Phillips
 App: FinFit JA
 Version: 1.5
-Purpose: Manages the Development Overview page for the FinFit JA Streamlit app.
+Purpose: Manages the Development Overview page.
 """
 
 import streamlit as st
