@@ -1,51 +1,51 @@
 """
-Developer's Name: Khalia Phillips
-App Name: FinFit JA
-Version: 1.2
-Purpose (File): This file handles API communication between the Streamlit app and the FinFit JA backend workspace.
+Developer: Khalia Phillips
+App: FinFit JA
+Version: 1.4
+Purpose: Handles API communication between the Streamlit app and the FinFit JA backend workspace.
 """
 
+import re
 import requests
 import streamlit as st
-import re
 
-#Defines a function to send user queries to the FinFit JA backend and retrieve responses
+#Defining the backend request function
 def ask_finfit_backend(prompt: str) -> str:
-    #Retrieves secure credentials from Streamlit
+    #Retrieving secure workspace credentials from Streamlit
     base_url = st.secrets["ANYTHINGLLM_BASE_URL"].rstrip("/")
     api_key = st.secrets["ANYTHINGLLM_API_KEY"]
     workspace_slug = st.secrets["WORKSPACE_SLUG"]
-    #Builds the workspace chat endpoint
+    #Building the workspace chat endpoint
     url = f"{base_url}/api/v1/workspace/{workspace_slug}/chat"
-    #Defines request headers
+    #Defining request headers
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
-    #Defines the request payload
+    #Defining the request payload
     payload = {
         "message": prompt,
         "mode": "query"
     }
-    #Attempts to connect to the backend and return a response
+    #Sending the request and returning the response
     try:
         response = requests.post(url, headers=headers, json=payload, timeout=60)
-        #Handles unsuccessful responses from the server
+        #Handling unsuccessful server responses
         if response.status_code != 200:
-            return "Sorry! We seem to have ran into a connection issue while trying to reach the FinFit JA model."
+            return "Sorry! We seem to have run into a connection issue while trying to reach the FinFit JA model."
         data = response.json()
-        #Returns the model response if available
+        #Returning the model response if available
         if data.get("textResponse"):
             raw = data["textResponse"]
             return clean_response(raw)
-        #Fallback if a usable response is missing
+        #Returning a fallback message if the response is missing
         return "Sorry! The model could not generate a response right now."
-    #Handles network-related errors
+    #Handling connection-related errors
     except requests.exceptions.RequestException:
         return "Sorry! We're having trouble connecting right now. Please try again shortly."
 
-#Cleans the model response by removing any internal thought process
+#Cleaning the model response
 def clean_response(text: str) -> str:
-    #Removes anything between <think>...</think> tags
+    #Removing internal thought tags
     cleaned = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)
     return cleaned.strip()
