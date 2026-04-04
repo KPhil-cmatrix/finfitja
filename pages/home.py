@@ -86,7 +86,7 @@ def open_landing():
             """
             <div class="mini-card">
                 <h3>Actionable<br>Guidance</h3>
-                <p>By presenting responses in a more approachable and useful format, 
+                <p>By presenting responses in a more approachable format, 
                 the system also aims to make financial decision-making feel less daunting to the wider Jamaican public.</p>
             </div>
             """,
