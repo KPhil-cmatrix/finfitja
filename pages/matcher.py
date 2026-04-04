@@ -1,8 +1,8 @@
 """
-Developer's Name: Khalia Phillips
-App Name: FinFit JA
-Version: 1.0
-Purpose (File): This file manages the Recommendation Generator page for the FinFit JA Streamlit app.
+Developer: Khalia Phillips
+App: FinFit JA
+Version: 1.4
+Purpose: Manages the Recommendation Generator page.
 """
 
 import time
@@ -10,162 +10,141 @@ import streamlit as st
 from layout import show_banner, show_site_tail
 from util.api_call import ask_finfit_backend
 
-
-#Recommendation Generator Page
+#Defining the Recommendation Generator page
 def open_matcher():
     show_banner("Recommendation Generator")
-
     st.markdown(
         """
         <div class="soft-card">
             <h3>Recommendation Generator</h3>
-            <p>
-                Use this page to generate a tailored bank account recommendation based on your profile,
-                needs, and preferences. Start by choosing the option that best describes you, then tell
-                FinFit JA what matters most to you.
-                <br><br>
-                Need general explanations instead? Use <strong>Ask FinFit</strong>.
-                Want to compare bank or account options side by side? Use <strong>Comparison Profile</strong>.
-            </p>
+            <p>Use this page to generate a tailored bank account recommendation based on your profile, needs, and preferences. 
+            Start by selecting the options that best describe you, then tell FinFit JA what matters most to you.</p>
+            <br>
+            <p>Need general explanations instead? Use <strong>Ask FinFit</strong>. 
+            Want to compare bank or account options side by side? Use <strong>Comparison Profile</strong>.</p>
         </div>
         """,
         unsafe_allow_html=True
     )
-
-    #Creates state values for recommendation handling
+    #Creating session state for recommendation results
     if "matcher_result" not in st.session_state:
         st.session_state.matcher_result = None
-
-    #Creates the main two-column layout
+    #Creating the main two-column layout
     left_col, right_col = st.columns(2, gap="large")
-
-    #Left Side - User Form
+    #Recommendation form panel
     with left_col:
         with st.container(height=640, border=True):
             st.markdown(
                 """
                 <h3 style="text-align:center; margin-bottom:0.55rem;">Tell FinFit About You</h3>
-                <p style="margin-bottom:1rem;">
-                    Answer a few quick questions so I can recommend the best-fit account for your needs.
-                </p>
+                <p style="margin-bottom:1rem;">Answer a few quick questions so I can recommend the best-fit account for your needs.</p>
                 """,
                 unsafe_allow_html=True
             )
-
             with st.form("recommendation_form"):
-                #Section 1 - Basic Profile
+                #About You expander
                 with st.expander("Section 1: About You", expanded=True):
                     user_type = st.selectbox(
-                        "Which best describes you?",
+                        "Which term best describes you?",
                         [
                             "Student",
-                            "Employed / salaried",
-                            "Self-employed / business-minded",
-                            "General customer"
+                            "Employed / Salaried",
+                            "Self-Employed / Entrepreneur",
+                            "General Customer"
                         ]
                     )
-
                     age_group = st.selectbox(
-                        "Which age group are you in?",
+                        "Which age group are you?",
                         [
                             "Teen",
-                            "Young adult",
+                            "Young Adult",
                             "Adult"
                         ]
                     )
-
                     primary_goal = st.selectbox(
-                        "What are you mainly looking for right now?",
+                        "What is your main financial goal right now?",
                         [
-                            "Save money",
-                            "Manage everyday spending",
-                            "Grow money over time",
-                            "Start with a simple account"
+                            "Build or grow my savings over time",
+                            "Manage my everyday spending more efficiently",
+                            "Start with a simple and easy-to-maintain account",
+                            "Earn interest on my money where possible",
+                            "Set aside money for a specific goal (e.g. school, car, emergency fund)"
                         ]
                     )
-
                     monthly_income = st.selectbox(
-                        "Which income range best fits you right now?",
+                        "How would you describe your current income level?",
                         [
-                            "Lower income",
-                            "Moderate income",
-                            "Higher income"
+                            "Low Income",
+                            "Moderate Income",
+                            "High Income"
                         ]
                     )
-
                     starting_amount = st.selectbox(
-                        "How much would you be comfortable starting with?",
+                        "How much are you comfortable starting with?",
                         [
-                            "A small amount",
-                            "A moderate amount",
-                            "A larger amount"
+                            "A Small Amount",
+                            "A Moderate Amount",
+                            "A Large Amount"
                         ]
                     )
-
-                #Section 2 - Preferences
+                #Preferences expander
                 with st.expander("Section 2: Your Preferences", expanded=True):
                     low_fee_priority = st.radio(
                         "How important are low or no monthly fees to you?",
                         [
-                            "Very important",
-                            "Somewhat important",
-                            "Not a priority"
+                            "Very Important",
+                            "Somewhat Important",
+                            "Not Important"
                         ]
                     )
-
                     digital_preference = st.radio(
                         "Do you want to do most of your banking online?",
                         [
                             "Yes, definitely",
                             "A mix of online and in-person is fine",
-                            "No, I prefer going into the bank"
+                            "No, I prefer going in to the bank"
                         ]
                     )
-
                     access_importance = st.radio(
-                        "Will easy access to branches and ATMs matter to you?",
+                        "Does easy access to branches and ATMs matter to you?",
                         [
-                            "Yes, very important",
-                            "Nice to have",
-                            "Not really"
+                            "Yes, Very Important",
+                            "Nice to Have",
+                            "Not Really"
                         ]
                     )
-
                     interest_preference = st.radio(
                         "Would you like your money to earn interest if possible?",
                         [
-                            "Yes",
-                            "Not necessary"
+                            "Yes, earning interest is a priority",
+                            "Yes, but it is not a necessity",
+                            "No, it is not important to me"
                         ]
                     )
-
                     extras = st.multiselect(
                         "Anything else that matters to you? (Optional)",
                         [
-                            "I want a debit card",
-                            "I want low opening requirements",
-                            "I want strong digital banking",
-                            "I want easy branch and ATM access",
-                            "I want something mainly for saving",
-                            "I want something mainly for everyday transactions"
+                            "Low or no minimum balance requirements",
+                            "Low or no monthly maintenance fees",
+                            "Strong mobile and online banking experience",
+                            "Easy access to branches and ATMs",
+                            "A debit card for everyday use",
+                            "An account that supports saving habits",
+                            "An account suited for frequent transactions",
+                            "Flexible access to my money when needed"
                         ]
                     )
-
-                #Form Buttons
+                #Form buttons
                 submit_col, reset_col = st.columns(2)
-
                 with submit_col:
                     generate = st.form_submit_button("Generate Recommendation", use_container_width=True)
-
                 with reset_col:
-                    reset = st.form_submit_button("Start Over", use_container_width=True)
-
-        #Handles Reset
+                    reset = st.form_submit_button("Regenerate", use_container_width=True)
+        #Handling reset
         if reset:
             st.session_state.matcher_result = None
             st.rerun()
-
-        #Handles Recommendation Generation
+        #Handling recommendation generation
         if generate:
             prompt = build_recommendation_prompt(
                 user_type=user_type,
@@ -179,20 +158,14 @@ def open_matcher():
                 interest_preference=interest_preference,
                 extras=extras
             )
-
             with st.spinner("Generating your FinFit match..."):
                 time.sleep(0.8)
                 try:
                     st.session_state.matcher_result = ask_finfit_backend(prompt)
                 except Exception:
-                    st.session_state.matcher_result = (
-                        "Sorry — I couldn’t generate a recommendation right now. "
-                        "Please try again in a moment."
-                    )
-
+                    st.session_state.matcher_result = "Sorry! I couldn’t generate a recommendation right now. Please try again in a moment."
             st.rerun()
-
-    #Right Side - Recommendation Output
+    #Recommendation output panel
     with right_col:
         with st.container(height=640, border=True):
             st.markdown(
@@ -201,25 +174,18 @@ def open_matcher():
                 """,
                 unsafe_allow_html=True
             )
-
             if st.session_state.matcher_result:
                 st.markdown(st.session_state.matcher_result)
             else:
                 st.markdown(
                     """
-                    <p style="margin-bottom:0;">
-                        Complete the questions on the left, then click
-                        <strong>Generate Recommendation</strong>
-                        to see your best-fit account here.
-                    </p>
+                    <p style="margin-bottom:0;">Complete the questions on the left, then click <strong>Generate Recommendation</strong> to see your best-fit account here.</p>
                     """,
                     unsafe_allow_html=True
                 )
-
     show_site_tail()
 
-
-#Builds a structured prompt from the user's selections
+#Building the recommendation prompt
 def build_recommendation_prompt(
     user_type: str,
     age_group: str,
@@ -232,9 +198,8 @@ def build_recommendation_prompt(
     interest_preference: str,
     extras: list[str]
 ) -> str:
-    #Creates a cleaner version of optional preferences
+    #Preparing optional preference text
     extras_text = ", ".join(extras) if extras else "No additional preferences provided."
-
     return f"""
 You are FinFit JA, a Jamaican banking recommendation assistant.
 

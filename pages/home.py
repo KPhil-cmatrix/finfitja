@@ -2,7 +2,7 @@
 Developer: Khalia Phillips
 App: FinFit JA
 Version: 1.5
-Purpose: Manages the Home page for the FinFit JA Streamlit app.
+Purpose: Manages the Home page.
 """
 
 from pathlib import Path

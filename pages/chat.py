@@ -2,7 +2,7 @@
 Developer: Khalia Phillips
 App: FinFit JA
 Version: 2.5
-Purpose: Manages the Ask FinFit page for the FinFit JA Streamlit app.
+Purpose: Manages the Ask FinFit page.
 """
 
 import time

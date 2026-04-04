@@ -2,7 +2,7 @@
 Developer: Khalia Phillips
 App: FinFit JA
 Version: 1.9
-Purpose: Manages the shared styling, sidebar layout, page banner, footer, and common platform elements for the FinFit JA Streamlit app.
+Purpose: Manages the shared styling, sidebar layout, page banner, footer, and common platform elements.
 """
 
 from pathlib import Path
