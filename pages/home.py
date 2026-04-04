@@ -146,7 +146,7 @@ def open_landing():
             """
             <div class="guide-card">
                 <h4>Performance Metrics</h4>
-                <p>A detailed overview of system performance metrics and evaluation insights.</p>
+                <p>A detailed overview of system performance metrics, user evaluation results, and key insights from pilot testing.</p>
             </div>
             """,
             unsafe_allow_html=True
