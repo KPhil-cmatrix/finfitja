@@ -38,7 +38,7 @@ def open_compare():
                 """
                 <h3 style="text-align:center; margin-bottom:0.55rem;">Build Your Comparison</h3>
                 <p style="margin-bottom:1rem;">Select what you would like to compare, 
-                then tell FinFit JA what matters most in the comparison.</p>
+                then specify what matters most in the comparison.</p>
                 """,
                 unsafe_allow_html=True
             )
