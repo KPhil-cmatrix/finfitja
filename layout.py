@@ -10,8 +10,8 @@ import streamlit as st
 
 #Brand Values
 AppTitle = "FinFit JA"
-BuildTag = "v1.0"
-MakerLine = "Created by Khalia Phillips"
+BuildTag = "v1.0.0"
+MakerLine = "Created by Khalia Phillips (BSc Information Technology, UCC)"
 RepoLink = "https://github.com/KPhil-cmatrix/finfitja.git"
 ShortNote = "Academic prototype only. Please confirm final banking details directly with the institution."
 FullNote = (
