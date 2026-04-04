@@ -63,7 +63,7 @@ def open_landing():
         st.markdown(
             """
             <div class="mini-card">
-                <h3>Tailored Recommendations</h3>
+                <h3>Tailored Suggestions</h3>
                 <p>Depending on their needs, such as low fees, student-friendly access, 
                 or mobile banking preferences, users can receive more personalized account recommendations.</p>
             </div>
