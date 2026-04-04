@@ -60,36 +60,39 @@ def open_scores():
             <td>{row["Interpretation"]}</td>
         </tr>
         """
-    table_html = f"""
-    <div style="background:#ffffff; border:1px solid #d8d1b2; border-radius:16px; overflow:hidden; margin-bottom:1rem;">
-        <div style="padding:1rem 1.2rem; border-bottom:1px solid #d8d1b2; font-weight:600; font-size:1.05rem;">
-            Evaluation Metrics Summary
+    st.markdown(
+        f"""
+        <div style="background:#ffffff; border:1px solid #d8d1b2; border-radius:16px; overflow:hidden; margin-bottom:1rem;">
+            <div style="padding:1rem 1.2rem; border-bottom:1px solid #d8d1b2; font-weight:600; font-size:1.05rem; background:#ffffff;">
+                Evaluation Metrics Summary
+            </div>
+            <table style="width:100%; border-collapse:collapse; background:#ffffff;">
+                <thead>
+                    <tr>
+                        <th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Metric</th>
+                        <th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Average Score (/10)</th>
+                        <th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {table_rows}
+                </tbody>
+            </table>
         </div>
-        <table style="width:100%; border-collapse:collapse;">
-            <thead>
-                <tr>
-                    <th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Metric</th>
-                    <th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Average Score (/10)</th>
-                    <th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Interpretation</th>
-                </tr>
-            </thead>
-            <tbody>
-                {table_rows}
-            </tbody>
-        </table>
-    </div>
-    <style>
-    table tbody tr td {{
-        padding: 0.9rem 1rem;
-        border-bottom: 1px solid #d8d1b2;
-        vertical-align: top;
-    }}
-    table tbody tr:last-child td {{
-        border-bottom: none;
-    }}
-    </style>
-    """
-    st.markdown(table_html, unsafe_allow_html=True)
+        <style>
+        table tbody tr td {{
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #d8d1b2;
+            vertical-align: top;
+            background:#ffffff;
+        }}
+        table tbody tr:last-child td {{
+            border-bottom: none;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     insight_cols = st.columns(3, gap="medium")
     with insight_cols[0]:
         with st.expander("What Worked Well", expanded=False):
