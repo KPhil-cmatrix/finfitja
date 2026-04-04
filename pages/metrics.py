@@ -53,44 +53,40 @@ def open_scores():
     )
     table_rows = ""
     for _, row in metric_table.iterrows():
-        table_rows += f"""
-        <tr>
-            <td>{row["Metric"]}</td>
-            <td>{row["Average Score (/10)"]:.1f}</td>
-            <td>{row["Interpretation"]}</td>
-        </tr>
-        """
+        table_rows += f"""<tr>
+<td>{row["Metric"]}</td>
+<td>{row["Average Score (/10)"]:.1f}</td>
+<td>{row["Interpretation"]}</td>
+</tr>"""
     st.markdown(
-        f"""
-        <div style="background:#ffffff; border:1px solid #d8d1b2; border-radius:16px; overflow:hidden; margin-bottom:1rem;">
-            <div style="padding:1rem 1.2rem; border-bottom:1px solid #d8d1b2; font-weight:600; font-size:1.05rem; background:#ffffff;">
-                Evaluation Metrics Summary
-            </div>
-            <table style="width:100%; border-collapse:collapse; background:#ffffff;">
-                <thead>
-                    <tr>
-                        <th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Metric</th>
-                        <th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Average Score (/10)</th>
-                        <th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Interpretation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {table_rows}
-                </tbody>
-            </table>
-        </div>
-        <style>
-        table tbody tr td {{
-            padding: 0.9rem 1rem;
-            border-bottom: 1px solid #d8d1b2;
-            vertical-align: top;
-            background:#ffffff;
-        }}
-        table tbody tr:last-child td {{
-            border-bottom: none;
-        }}
-        </style>
-        """,
+        f"""<div style="background:#ffffff; border:1px solid #d8d1b2; border-radius:16px; overflow:hidden; margin-bottom:1rem;">
+<div style="padding:1rem 1.2rem; border-bottom:1px solid #d8d1b2; font-weight:600; font-size:1.05rem; background:#ffffff;">
+Evaluation Metrics Summary
+</div>
+<table style="width:100%; border-collapse:collapse; background:#ffffff;">
+<thead>
+<tr>
+<th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Metric</th>
+<th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Average Score (/10)</th>
+<th style="text-align:left; padding:0.9rem 1rem; border-bottom:1px solid #d8d1b2;">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+{table_rows}
+</tbody>
+</table>
+</div>
+<style>
+table tbody tr td {{
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid #d8d1b2;
+    vertical-align: top;
+    background:#ffffff;
+}}
+table tbody tr:last-child td {{
+    border-bottom: none;
+}}
+</style>""",
         unsafe_allow_html=True
     )
     insight_cols = st.columns(3, gap="medium")
@@ -100,7 +96,7 @@ def open_scores():
                 """
                 FinFit JA consistently generated accurate and well-structured responses grounded in its datasets. 
                 It avoided depending on general or presumptive recommendations, maintained standardized outputs, and cited particular account information.
-                Since responses followed a standard format that contained both explanations and other alternative options, users were able to easily understand why specific accounts or banks were suggested.  
+                Since responses followed a standard format that contained both explanations and other alternative options, users were able to easily understand why specific accounts or banks were suggested.  
                 This, in turn, contributed to a more transparent and trustworthy user experience.
                 Additionally, Strong alignment between user inputs and output recommendations was also demonstrated by the system, suggesting that the rule-based decision logic and tagging algorithm were operating efficiently across various query types.
                 """
@@ -111,7 +107,7 @@ def open_scores():
                 """
                 A limitation was observed when handling ambiguous or subtly negative queries. 
                 In certain instances, the system tried to answer directly rather than ask for clarification, suggesting that intent detection and handling of clarification may be further enhanced.
-                This was particularly evident in questions where the user's choices were not fully expressed or were expressed in an indirect manner, which sometimes resulted in somewhat accurate but poorly personalized answers.  
+                This was particularly evident in questions where the user's choices were not fully expressed or were expressed in an indirect manner, which sometimes resulted in somewhat accurate but poorly personalized answers.  
                 It can be deducted then, that enhancing the system's ability to identify ambiguity and request clarification would improve overall accuracy.
                 Furthermore, there were a few discrepancies in the interpretation of edge-case requests, indicating that the decision logic and prompt structure may be further improved to provide a greater robustness in less straightforward cases.
                 """
@@ -123,7 +119,7 @@ def open_scores():
                 The system demonstrated effective resistance to prompt injection and unauthorized data access attempts. 
                 It continued to appropriately respond to valid portions of user inquiries while refusing to reveal sensitive information.
                 During adversarial testing, the model maintained its structured response behavior and did not deviate from its dataset-driven constraints, reinforcing its reliability as a controlled decision-support tool.
-                This demonstrates that the system's prompt design and dataset restrictions successfully enforced boundaries, ensuring that outputs were secure, relevant, and within the intended application scope.
+                This demonstrates that the system's prompt design and dataset restrictions successfully enforced boundaries, ensuring that outputs were secure, relevant, and within the intended application scope.
                 """
             )
     bottom_cols = st.columns(2, gap="medium")
@@ -133,7 +129,7 @@ def open_scores():
                 """
                 There were slight delays in response time that were observed during testing, particularly when handling more complex recommendation or comparison queries. 
                 These delays were primarily influenced by the system’s reliance on an external API (OpenRouter), where response times can vary due to factors outside of direct system control.
-                However, considering the system's high accuracy, well-organized responses, and well-tailored recommendations, users generally regarded this as acceptable. 
+                However, considering the system's high accuracy, well-organized responses, and well-tailored recommendations, users generally regarded this as acceptable. 
                 With further optimization of model configuration and backend processing, response times could be improved without compromising the quality and reliability of the system's outputs.
                 """
             )
