@@ -11,7 +11,8 @@ import streamlit as st
 #Brand Values
 AppTitle = "FinFit JA"
 BuildTag = "v1.0.0"
-MakerLine = "Created by Khalia Phillips (BSc Information Technology, UCC)"
+MakerLine = "Created by Khalia Phillips"
+MakerNote = "(BSc Information Technology, UCC)"
 RepoLink = "https://github.com/KPhil-cmatrix/finfitja.git"
 ShortNote = "Academic prototype only. Please confirm final banking details directly with the institution."
 FullNote = (
@@ -127,7 +128,7 @@ def pour_style():
             font-weight: 800;
             color: var(--ink-main);
             margin: 0.15rem 0;
-            text-align: left;
+            text-align: center;
         }
         .crest-note {
             font-size: 1rem;
@@ -426,6 +427,7 @@ def show_trail_end():
         <div class="side-tail">
             <div><strong>{BuildTag}</strong></div>
             <div>{MakerLine}</div>
+            <div>{MakerNote}</div>
             <div style="margin-top:0.4rem;"><a href="{RepoLink}" target="_blank">GitHub Repository</a></div>
         </div>
         """,
