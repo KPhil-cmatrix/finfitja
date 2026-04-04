@@ -1,7 +1,7 @@
 """
 Developer: Khalia Phillips
 App: FinFit JA
-Version: 1.8
+Version: 1.9
 Purpose: Manages the shared styling, sidebar layout, page banner, footer, and common platform elements for the FinFit JA Streamlit app.
 """
 
@@ -74,6 +74,9 @@ def pour_style():
             color: var(--ink-main);
             line-height: 1.75;
         }
+        section[data-testid="stSidebar"] {
+           background-color: var(--banner-fill) !important;
+        }
         section[data-testid="stSidebar"] div.stButton > button {
             width: 100%;
             min-height: 64px;
@@ -101,11 +104,12 @@ def pour_style():
             background: #fcfff9;
             color: var(--ink-main);
             border: 1px solid var(--line-soft);
-            box-shadow: inset 5px 0 0 #9ecc85;
-            font-weight: 700;
-            font-size: 1.1rem;
-            opacity: 1;
+            box-shadow: inset 6px 0 0 #9ecc85;
+            font-weight: 800 !important;
+            font-size: 1.16rem !important;
+            opacity: 1 !important;
             cursor: default;
+            -webkit-text-fill-color: var(--ink-main) !important;
         }
         .crest-wrap {
             text-align: center;
@@ -427,17 +431,3 @@ def show_trail_end():
         """,
         unsafe_allow_html=True
     )
-
-#Showing a temporary page block
-def hold_page(title:str, text:str):
-    show_banner(title)
-    st.markdown(
-        f"""
-        <div class="panel-card">
-            <h3>Coming Next</h3>
-            <p style="margin-bottom:0;">{text}</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-    show_site_tail()
