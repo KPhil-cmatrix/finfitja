@@ -2,7 +2,7 @@
 Developer: Khalia Phillips
 App: FinFit JA
 Version: 1.4
-Purpose: Handles API communication between the Streamlit app and the FinFit JA backend workspace.
+Purpose: Handles API communication between the Streamlit app and the FinFit JA backend.
 """
 
 import re

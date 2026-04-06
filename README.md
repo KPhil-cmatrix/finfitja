@@ -8,7 +8,7 @@ This project was developed as part of the major project requirements for the Int
 The project focuses on the design and implementation of a functional web-based system that integrates a Jamaican domain-specific custom GPT, supported by interactive user interfaces, structured development documentation, and a comprehensive evaluation of system performance.  
 
 
-## Purpose  
+## Purpose
 FinFit JA was created to simplify how users access and understand banking information within the Jamaican financial space.  
 
 In many cases, individuals are required to search across multiple bank websites to compare account features, fees, and requirements. This process can be time-consuming and often confusing, especially for users who may not be familiar with financial terminology. FinFit JA addresses this gap by providing a centralized platform where users can receive structured, relevant, and easy-to-understand assistance.  
@@ -21,7 +21,7 @@ FinFit JA operates using a structured, dataset-driven approach rather than relyi
 
 When a user interacts with the system, whether through a chat query or a form submission, the input is converted into a structured prompt and sent to a backend large language model via the AnythingLLM API. The model then retrieves relevant information from curated banking datasets and applies predefined decision logic to generate responses that are both consistent and contextually appropriate.  
 
-The system is designed around three main types of user interaction. Users may ask informational questions through the Ask FinFit interface, generate personalized recommendations through the Recommendation Generator, or perform structured comparisons using the Comparison Profile. Each of these components is designed to guide the user toward clearer understanding and more confident decision-making.  
+The system is designed around three main types of user interactions. Users may ask informational questions through the Ask FinFit interface, generate personalized recommendations through the Recommendation Generator, or perform structured comparisons using the Comparison Profile. Each of these components is designed to guide the user toward clearer understanding and more confident decision-making.  
 
 It is important to note that all system responses are constrained to curated datasets. This design choice helps to improve accuracy, maintain consistency, and reduce the likelihood of hallucinated or misleading information.  
 
@@ -31,9 +31,9 @@ It is important to note that all system responses are constrained to curated dat
    
 2. The **Recommendation Generator** allows users to input their preferences and financial needs through an interactive form. Based on this input, the system produces a best-fit account recommendation, along with alternative options, key features, and a clear explanation of trade-offs.  
 
-3. The **Comparison Profile** enables users to compare banks or specific account types side-by-side. The interface dynamically adjusts based on the selected comparison level, ensuring that the output remains structured, relevant, and easy to interpret.  
+3. The **Comparison Profile** enables users to compare banks, or specific account types, side-by-side. The interface dynamically adjusts based on the selected comparison level, ensuring that the output remains structured, relevant, and easy to interpret.  
 
-4. The **Dev Process** section outlines the overall development journey of the system, including data collection, data structuring, implementation of decision logic, system integration, interface design, testing, and iterative refinement. It also highlights key challenges encountered and the solutions applied throughout development.  
+4. The **Development Process** section outlines the overall development journey of the system, including data collection, data structuring, implementation of decision logic, system integration, interface design, testing, and iterative refinement. It also highlights key challenges encountered and the solutions applied throughout development.  
 
 5. Finally, the **Performance Metrics** section presents the results of pilot testing in a structured format. These results evaluate the system based on accuracy, relevance, user satisfaction, response appropriateness, as well as overall efficiency and reliability.  
 
@@ -71,7 +71,7 @@ The `pages` directory contains the individual functional components of the appli
 ## Future Improvements
 While FinFit JA demonstrated strong performance across all evaluation metrics, several areas for enhancement were identified. Key opportunities for future development include:
 - Improved Query Interpretation: Strengthening the system’s ability to handle ambiguous or indirectly phrased queries by enhancing intent recognition and introducing clarification prompts for more accurate responses.
-- Dataset Expansion and Updates: Continuously expanding the dataset to include more financial institutions, richer account details, and updated product information to ensure broader coverage and ongoing relevance within the Jamaican banking sector.
+- Dataset Expansion and Updates: Continuously expanding the dataset to include additional financial institutions, richer account details, and updated product information to ensure broader coverage and ongoing relevance within the Jamaican banking sector.
 - Performance Optimization: Reducing response time for complex recommendation and comparison queries through improved API handling and backend efficiency.
 - Personalization Features: Introducing user profiles, saved preferences, and interaction history to support more tailored recommendations and a more engaging user experience over time.
 - Real-World Deployment and Feedback: Deploying the system in a live environment to collect user feedback and monitor performance, enabling continuous refinement of both the dataset and decision logic.

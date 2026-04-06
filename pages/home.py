@@ -45,7 +45,7 @@ def open_landing():
     st.markdown(
         """
         <div class="soft-card">
-            <h3>Why This Matters in Jamaican Banking</h3>
+            <h3>Why this matters in Jamaican Banking</h3>
             <p>The process of selecting financial services on your own can be both challenging and time-consuming, 
             especially when products from different banks seem similar at first glance but differ greatly in accessibility, 
             digital features, and general suitability. 

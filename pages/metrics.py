@@ -98,7 +98,7 @@ table tbody tr:last-child td {{
                 It avoided depending on general or presumptive recommendations, maintained standardized outputs, and cited particular account information.
                 Since responses followed a standard format that contained both explanations and other alternative options, users were able to easily understand why specific accounts or banks were suggested.  
                 This, in turn, contributed to a more transparent and trustworthy user experience.
-                Additionally, Strong alignment between user inputs and output recommendations was also demonstrated by the system, suggesting that the rule-based decision logic and tagging algorithm were operating efficiently across various query types.
+                Additionally, strong alignment between user inputs and output recommendations was also demonstrated by the system, suggesting that the rule-based decision logic and tagging algorithm were operating efficiently across various query types.
                 """
             )
     with insight_cols[1]:
@@ -108,8 +108,8 @@ table tbody tr:last-child td {{
                 A limitation was observed when handling ambiguous or subtly negative queries. 
                 In certain instances, the system tried to answer directly rather than ask for clarification, suggesting that intent detection and handling of clarification may be further enhanced.
                 This was particularly evident in questions where the user's choices were not fully expressed or were expressed in an indirect manner, which sometimes resulted in somewhat accurate but poorly personalized answers.  
-                It can be deducted then, that enhancing the system's ability to identify ambiguity and request clarification would improve overall accuracy.
-                Furthermore, there were a few discrepancies in the interpretation of edge-case requests, indicating that the decision logic and prompt structure may be further improved to provide a greater robustness in less straightforward cases.
+                It can then be deduced that enhancing the system's ability to identify ambiguity and request clarification would improve overall accuracy.
+                Furthermore, there were a few discrepancies in the interpretation of edge-case requests, indicating that the decision logic and prompt structure may be further improved to provide greater robustness in less straightforward cases.
                 """
             )
     with insight_cols[2]:
