@@ -19,7 +19,7 @@ def open_landing():
             left, center, right = st.columns([1, 2, 1])
             with center:
                 st.image(str(logo), width=240)
-        st.markdown('<div class="hero-title">Smarter Banking Starts Here.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="hero-title">Find Your Best Financial Fit.</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(
             """
@@ -36,7 +36,7 @@ def open_landing():
             """
             <div class="note-box">
                 <p><strong>"From students who are just starting out, to established working professionals who are looking to optimize their financial portfolios, 
-                FinFit JA is designed to help everyone find their best financial fit." - Khalia Phillips, 2026</strong></p>
+                FinFit JA is designed to help everyone find their best financial fit." - Khalia Phillips (2026) </strong></p>
             </div>
             """,
             unsafe_allow_html=True
