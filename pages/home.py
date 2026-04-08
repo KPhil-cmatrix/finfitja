@@ -19,7 +19,7 @@ def open_landing():
             left, center, right = st.columns([1, 2, 1])
             with center:
                 st.image(str(logo), width=240)
-        st.markdown('<div class="hero-title">Find Your Best Financial Fit.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="hero-title">Smarter Banking Decisions.<br>Better Financial Fit.</div>', unsafe_allow_html=True)
     with col2:
         st.markdown(
             """
