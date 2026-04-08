@@ -139,7 +139,7 @@ def open_matcher():
                 with submit_col:
                     generate = st.form_submit_button("Generate Recommendation", use_container_width=True)
                 with reset_col:
-                    reset = st.form_submit_button("Regenerate", use_container_width=True)
+                    reset = st.form_submit_button("Start Over", use_container_width=True)
         #Handling reset
         if reset:
             st.session_state.matcher_result = None
